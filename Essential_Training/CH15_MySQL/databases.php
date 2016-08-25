@@ -37,13 +37,35 @@
 	<body>
 
 		<?php
+			/*
 			// enquanto puder retornar algum valor...
 			while($row = mysqli_fetch_row($result)){
 				var_dump($row);
 				echo "<hr /> "; 
 			}
+ 			// outra forma...
+			while($row = mysqli_fetch_assoc($result)){
+				var_dump($row);
+				echo "<hr /> "; 
+			}
 
-		?>
+ 			*/
+ 			?>
+			<ul>
+			<?php
+			while($subject = mysqli_fetch_assoc($result)){
+				?>
+				<li><?php echo $subject["menu_name"]; ?></li>
+			<?php
+				}
+				/* // alternando entre php e html no meio do loop
+				echo $row["id"] . "<br />";
+				echo $row["position"] . "<br />";				
+				echo $row["visible"] . "<br />";
+				echo "<hr /> ";
+				*/
+			?>	
+			</ul>	 
 		<?php
 			// liberando o reesultado
 			mysqli_free_result($result);
