@@ -8,7 +8,7 @@
 */
 
 function has_presence($value){
-	return isset($value) && $value !== "";
+	return isset($value) && $value == "";
 }
 
 function has_right_size($value){
