@@ -21,11 +21,24 @@
 	$query .= "WHERE visible = 1 ";
 	$query .= "ORDER BY position DESC";
 
+
+	$query2 = "SELECT * ";
+	$query2 .= "FROM subjects ";
+	$query2 .= "WHERE visible = 0 ";
+	$query2 .= "ORDER BY position ASC";
+
+
 	$result = mysqli_query($connection,$query);
 	// result is a resource type, a new one
 	if(!$result){
 		die("database connection faild.");
 	} 
+	$result2 = mysqli_query($connection,$query2);
+	// result is a resource type, a new one
+	if(!$result2){
+		die("database connection faild.");
+	} 
+
 
 ?>
 <!DOCTYPE html PUBLIC "~//W3C//DTD HTML 4.0.1 Transitional//EN"
@@ -35,9 +48,9 @@
 	<title>Databases</title>
 	</head>
 	<body>
-
-		<?php
+			<?php
 			/*
+
 			// enquanto puder retornar algum valor...
 			while($row = mysqli_fetch_row($result)){
 				var_dump($row);
@@ -48,14 +61,14 @@
 				var_dump($row);
 				echo "<hr /> "; 
 			}
-
  			*/
  			?>
 			<ul>
 			<?php
+			echo "Visibles: <br />";
 			while($subject = mysqli_fetch_assoc($result)){
 				?>
-				<li><?php echo $subject["menu_name"]; ?></li>
+				<li><?php echo $subject["menu_name"] . " (" . $subject["id"] . ")"; ?></li>
 			<?php
 				}
 				/* // alternando entre php e html no meio do loop
@@ -64,8 +77,19 @@
 				echo $row["visible"] . "<br />";
 				echo "<hr /> ";
 				*/
-			?>	
+			?>
 			</ul>	 
+			<br />
+			<ul>
+			<?php
+			echo "Invisibles: <br />";
+			while($subject = mysqli_fetch_assoc($result2)){
+				?>
+				<li><?php echo $subject["menu_name"] . " (" . $subject["id"] . ")"; ?></li>
+			<?php
+				}
+			?>	
+			</ul>	
 		<?php
 			// liberando o reesultado
 			mysqli_free_result($result);
