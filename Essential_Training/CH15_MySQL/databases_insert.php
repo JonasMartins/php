@@ -15,10 +15,13 @@
 	}
 ?>
 <?php
-
-	$menu_name = "Edit me";
+	// problema com a áspa de Today's
+	$menu_name = "Today's widget Trivia";
 	$position = 4;
 	$visible = 1;
+
+	//resolvendo problema da áspa simples
+	$menu_name = mysqli_real_scape_string($connection, $menu_name);
 
 	$query  = "INSERT INTO subjects (";
 	$query .= " menu_name, position, visible)";
