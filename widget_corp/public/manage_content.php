@@ -18,20 +18,9 @@ require_once("../includes/functions.php");
 			diferença que faz ao se adotar o css como 
 			design da página -->
 			<ul class="subjects">
+			<?php $subject_set = find_all_subjects(); ?>
 			<?php
-			echo "Visibles: <br />";
-			/* Fazendo um loop para mostrar todas as informações dos subjects, no caso apenas uma tebela e não um objeto em sí, notar como
-			for feito a quebra no meio do loop para listar
-			de uma forma desejável as informações na página.
-			*/	
-			$query = "SELECT * ";
-			$query .= "FROM subjects ";
-			$query .= "WHERE visible = 1 ";
-			$query .= "ORDER BY position ASC";
-			$result = mysqli_query($connection,$query);
-			confirm_query($result);
-		
-	 		while($subject = mysqli_fetch_assoc($result)){
+	 		while($subject = mysqli_fetch_assoc($subject_set)){
 				/* Abaixo da lista de subjects, queremos mostrar
 				uma lista com todas as páginas
 				*/
@@ -39,13 +28,7 @@ require_once("../includes/functions.php");
 				<li>				
 				<?php echo $subject["menu_name"]; ?>
 					<?php	
-						$query = "SELECT * ";
-						$query .= "FROM pages ";
-						$query .= "WHERE visible = 1 ";
-						$query .= "AND subject_id = {$subject["id"]} "; /* cuidado espaço.... */
-						$query .= "ORDER BY position ASC";
-						$page_set = mysqli_query($connection,$query);
-						confirm_query($page_set);	
+							$page_set = find_pages_for_subject($subject["id"]);
 					?>
 					<ul class="pages">
 					<?php
@@ -61,7 +44,7 @@ require_once("../includes/functions.php");
 			<?php 
 				} 
 			?>
-	<?php mysqli_free_result($result); ?>
+	<?php mysqli_free_result($subject_set); ?>
 		</ul>
 		</div>
 	<div id="page">
@@ -69,4 +52,4 @@ require_once("../includes/functions.php");
 	</div>
 </div>	 
 <?php include("../includes/layouts/footer.php"); ?>
-<!-- Close connection foi movido para o footer-->
+<!-- Close connection foi movido para o   footer-->
