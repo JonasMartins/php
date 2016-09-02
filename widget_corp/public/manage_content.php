@@ -37,7 +37,21 @@ require_once("../includes/functions.php");
 				uma lista com todas as páginas
 				*/
 				?>	
-				<li>				
+				<?php 
+				echo "<li";
+				/* artificion feito para musar a classe
+				selected vinda do stylesheet para que 
+				o nome do objeto subject esteja em bold
+				apenas se o mesmo estiver selecionado
+				por isso o if dentro do php, dentro do
+				li */
+				if($subject["id"]==$selected_subject_id){
+					echo "class=\"selected\"";
+					/*se os dois forem iguais aadiciona
+					a marcação selected, do stylesheet */
+				}
+				echo ">"; 
+				?>			
 				<a href="manage_content.php?subject=<?php
 				echo urlencode($subject["id"]); ?>"><?php echo $subject["menu_name"]; ?></a>  
 					<?php	
@@ -47,7 +61,13 @@ require_once("../includes/functions.php");
 					<?php
 					while($page = mysqli_fetch_assoc($page_set)){
 						?>	
-						<li>
+							<?php 
+							echo "<li";
+							if($page["id"]==$selected_page_id){
+								echo "class=\"selected\"";
+							}
+							echo ">"; 
+						?>
 						<a href="manage_content.php?page=<?php
 				echo urlencode($page["id"]); ?>"><?php echo $page["menu_name"]; ?></a> 
 						</li>
