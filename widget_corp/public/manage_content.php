@@ -9,7 +9,19 @@ em outros arquivos  */
 require_once("../includes/functions.php"); 
 ?>
 <?php include("../includes/layouts/header.php"); ?>
+<?php
+	if (isset($_GET["subject"])) {
+		$selected_page_id = null;
+		$selected_subject_id = $_GET["subject"];
+	}elseif (isset($_GET["page"])){
+		$selected_subject_id = null;
+		$selected_page_id = $_GET["page"];
+	}else{
+		$selected_page_id = null;
+		$selected_subject_id = null;
+	}
 
+?>
 <div id="main">
 	<div id="navigation">
 			<!-- Esses ids e classes se referem ao css,
@@ -26,7 +38,8 @@ require_once("../includes/functions.php");
 				*/
 				?>	
 				<li>				
-				<?php echo $subject["menu_name"]; ?>
+				<a href="manage_content.php?subject=<?php
+				echo urlencode($subject["id"]); ?>"><?php echo $subject["menu_name"]; ?></a>  
 					<?php	
 							$page_set = find_pages_for_subject($subject["id"]);
 					?>
@@ -34,7 +47,10 @@ require_once("../includes/functions.php");
 					<?php
 					while($page = mysqli_fetch_assoc($page_set)){
 						?>	
-						<li><?php echo $page["menu_name"]; ?></li>
+						<li>
+						<a href="manage_content.php?page=<?php
+				echo urlencode($page["id"]); ?>"><?php echo $page["menu_name"]; ?></a> 
+						</li>
 					<?php 
 						}
 					 ?>
@@ -49,7 +65,10 @@ require_once("../includes/functions.php");
 		</div>
 	<div id="page">
 		<h2>Manage Content</h2>
-	</div>
+		<?php echo $selected_subject_id; ?><br />
+		<?php echo $selected_page_id; ?>
+
+	</div> 
 </div>	 
 <?php include("../includes/layouts/footer.php"); ?>
 <!-- Close connection foi movido para o   footer-->
