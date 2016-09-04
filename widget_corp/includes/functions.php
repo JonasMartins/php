@@ -9,10 +9,13 @@
 		/* nice global, in right place */
 		global $connection;
 
+				/* Mais segurança */
+		$safe_subject_id = mysqli_real_escape_string($connection, $subject_id);
+
 		$query = "SELECT * ";
 		$query .= "FROM pages ";
 		$query .= "WHERE visible = 1 ";
-		$query .= "AND subject_id = {$subject_id} "; /* cuidado espaço.... */
+		$query .= "AND subject_id = {$safe_subject_id} "; /* cuidado espaço.... */
 		$query .= "ORDER BY position ASC";
 		$page_set = mysqli_query($connection,$query);
 		confirm_query($page_set);
@@ -21,7 +24,6 @@
 	function find_all_subjects(){
 		/* nice global, in right place */
 		global $connection;
-
 		/* Fazendo um loop para mostrar todas as informações dos subjects, no caso apenas uma tebela e não um objeto em sí, notar como
 		for feito a quebra no meio do loop para listar
 		de uma forma desejável as informações na página.
@@ -34,12 +36,12 @@
 		confirm_query($result); 
 		return $result;
 	}
-	/* Os dois argumentos de navigation são:
-	o atual subject selecionado e a atual page
-	selecionada  */
 	function navigation($subject_id,$page_id){
-	/*	
-	<!-- Esses ids e classes se referem ao css,
+			/* Os dois argumentos de navigation são:
+			o atual subject selecionado e a atual page
+			selecionada  */
+			/*	
+			<!-- Esses ids e classes se referem ao css,
 			ou seja os estilo que foi definido para navigation, subjects e todos listados aqui
 			serão aplicados nestes padrões, notar a grande
 			diferença que faz ao se adotar o css como 
@@ -87,14 +89,41 @@
 					$output_html .= "</li>"; 
 				}
 			mysqli_free_result($page_set);
-			$output_html .= "</ul>";
-			$output_html .= "</li>";
+				$output_html .= "</ul>";
+				$output_html .= "</li>";
 			} 
-	mysqli_free_result($subject_set); 
-		$output_html .= "</ul>";
-	/* retornando todo o html em uma unica string para
-	a pagina que requisitar essa função, uma forma
-	de refatoração mais uma vez*/	
-	return $output_html;	
+			mysqli_free_result($subject_set); 
+				$output_html .= "</ul>";	
+			return $output_html;	
+			/* retornando todo o html em uma unica string para
+			a pagina que requisitar essa função, uma forma
+			de refatoração mais uma vez*/ 
 	}
+
+	function find_subject_by_id($subject_id){
+		global $connection;
+
+		/* Mais segurança */
+		$safe_subject_id = mysqli_real_escape_string($connection, $subject_id);
+
+		$query = "SELECT * ";
+		$query .= "FROM subjects ";
+		$query .= "WHERE id = {$safe_subject_id} ";
+		$query .= "LIMIT 1";
+		$result = mysqli_query($connection,$query);
+		confirm_query($result); 
+		// return the row, just one this time
+		if ($subject = mysqli_fetch_assoc($result)){
+		/* retorna false se não encontrar, 
+			obviamente não fará diferença uma vez
+			que esta informação vem de um link em uma
+			página, ou seja totalmente seguro, mas
+			seria esta uma boa prática
+		*/
+			return $subject;	
+		}else{
+			return null;    
+		}
+	}
+
 ?>
