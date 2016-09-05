@@ -1,4 +1,17 @@
 <?php
+	
+	function redirect_to($new_location){
+		header("Location: " . $new_location);
+		exit;
+	}
+
+	function mysqli_prep($string){
+		global $connection;
+
+		$scaped_string = mysqli_real_escape_string($connection, $string);
+		return $scaped_string;
+	}
+
 	function confirm_query($result){
 		if(!$result){
 			die("database connection faild.");
