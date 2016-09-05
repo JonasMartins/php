@@ -1,4 +1,4 @@
-<?php	
+	<?php	
 /** Header, footer e functions, como aproveita-las
 em outros arquivos  */
 require_once("../includes/functions.php");

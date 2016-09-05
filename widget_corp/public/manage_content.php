@@ -14,6 +14,8 @@ require_once("../includes/functions.php");
 <div id="main">
 	<div id="navigation">
 		<?php echo navigation($current_subject,$current_page); ?>
+		<br />
+		<a href="new_subject.php">+ Add a subject</a>
 		</div>
 	<div id="page">
 
