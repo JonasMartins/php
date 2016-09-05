@@ -36,10 +36,27 @@
 		confirm_query($result); 
 		return $result;
 	}
-	function navigation($subject_id,$page_id){
+	function find_selected_page(){
+			global $current_page;
+			global $current_subject;
+			
+			if (isset($_GET["subject"])) {
+			$current_subject = find_subject_by_id($_GET["subject"]);
+			$current_page = null;
+			}elseif (isset($_GET["page"])){
+				$current_page = find_page_by_id($_GET["page"]);
+				$current_subject = null;
+			}else{
+				$current_page = null;
+				$current_subject = null;  
+			}
+	}
+
+	// esse array siginifica o objeto completo
+	function navigation($subject_array,$page_array){
 			/* Os dois argumentos de navigation são:
-			o atual subject selecionado e a atual page
-			selecionada  */
+			o atual subject array selecionado e a 
+			atual page array selecionada  */
 			/*	
 			<!-- Esses ids e classes se referem ao css,
 			ou seja os estilo que foi definido para navigation, subjects e todos listados aqui
@@ -60,7 +77,7 @@
 				apenas se o mesmo estiver selecionado
 				por isso o if dentro do php, dentro do
 				li */
-				if($subject["id"]==$subject_id){
+				if($subject_array && $subject["id"]==$subject_array["id"]){
 					$output_html .=  "class=\"selected\"";
 					/*se os dois forem iguais aadiciona
 					a marcação selected, do stylesheet */
@@ -77,7 +94,7 @@
 				$output_html .= "<ul class=\"pages\">";
 				while($page = mysqli_fetch_assoc($page_set)){  
 					$output_html .=  "<li";
-					if($page["id"]==$page_id){
+					if($page_array && $page["id"]==$page_array["id"]){
 						$output_html .=  "class=\"selected\"";
 					}
 					$output_html .=  ">"; 
@@ -120,7 +137,25 @@
 			página, ou seja totalmente seguro, mas
 			seria esta uma boa prática
 		*/
-			return $subject;	
+			return $subject;	 
+		}else{
+			return null;    
+		}
+	}
+	function find_page_by_id($page_id){
+		global $connection;
+
+		/* Mais segurança */
+		$safe_page_id = mysqli_real_escape_string($connection, $page_id);
+
+		$query = "SELECT * ";
+		$query .= "FROM pages ";
+		$query .= "WHERE id = {$safe_page_id} ";
+		$query .= "LIMIT 1";
+		$result = mysqli_query($connection,$query);
+		confirm_query($result); 
+		if ($page = mysqli_fetch_assoc($result)){
+				return $page;	
 		}else{
 			return null;    
 		}
