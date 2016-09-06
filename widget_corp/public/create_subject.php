@@ -7,7 +7,9 @@ require_once("../includes/functions.php");
 if(isset($_POST['submit'])){
 
 	// se o botão de submeter um subject for acionado...
-	
+	// tem um erro exatamente em mysqli_query....
+	// esssa linha faz a aplicação quebrar....
+
 	$menu_name = mysqli_prep($_POST["menu_name"]);
 	$position = (int) $_POST["position"];
 	$visible = (int) $_POST["visible"];
@@ -18,7 +20,6 @@ if(isset($_POST['submit'])){
 	$query .= " '{$menu_name}', {$position}, {$visible}";
 	$query .= ")";
 	
-	
 	$result = mysqli_query($connection,$query);
 	// result is a resource type, a new one
 	if($result){
@@ -28,8 +29,8 @@ if(isset($_POST['submit'])){
 	}else{
 		$message = "Subject creation faild.";
 		redirect_to("new_subject.php");
+	}
 }else{
-
 	// Obs: Ligar o outputbuffer, rever aulas 
 	// anteriores
 	redirect_to("new_subject.php");
@@ -37,7 +38,7 @@ if(isset($_POST['submit'])){
 
 ?>
 
-
+	
 <?php
  if (isset($connection)){
  	mysqli_close($connection);
