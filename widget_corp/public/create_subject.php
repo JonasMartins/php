@@ -30,7 +30,14 @@ if(isset($_POST['submit'])){
 		$message = "Subject creation faild.";
 		redirect_to("new_subject.php");
 	}
-}else{
+}else{ // Faltava fechar uma chave por isso
+			// o código não rodava, a análise de informações
+		 // sem ver a saída do servidor causa isso...
+	  // várias horas tentando descobrir isso, 
+	 // próxima vez pesquisar pela saída so servidor.
+
+	// Rails não teria acontecido isso!
+
 	// Obs: Ligar o outputbuffer, rever aulas 
 	// anteriores
 	redirect_to("new_subject.php");
