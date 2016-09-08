@@ -1,6 +1,8 @@
 <?php	
 require_once("../includes/db_connection.php");
-require_once("../includes/functions.php"); 
+require_once("../includes/functions.php");
+require_once("../includes/session.php");
+
 include("../includes/layouts/header.php");
 find_selected_page(); ?>
 
@@ -9,7 +11,11 @@ find_selected_page(); ?>
 		<?php echo navigation($current_subject,$current_page); ?>
 		</div>
 	<div id="page">
-	<h2>Create Subject echo</h2>
+	<?php echo message(); ?>
+	<?php $errors = errors(); ?>
+	<?php echo form_errors($errors); ?>
+
+	<h2>Create Subject</h2>
 	<form action="create_subject.php" method="post">
 		<p>Menu Name:
 			<input type="text" name="menu_name" value=""/>

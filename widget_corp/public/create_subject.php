@@ -17,7 +17,6 @@ if(isset($_POST['submit'])){
 	$visible = (int) $_POST["visible"];
 
 	// validations
-
 	$required_fields = array("menu_name", "position", "visible");
 	validate_presences($required_fields);
 
@@ -28,6 +27,7 @@ if(isset($_POST['submit'])){
 		$_SESSION["errors"] = $errors;
 		redirect_to("new_subject.php");
 	}
+
 	$query  = "INSERT INTO subjects (";
 	$query .= " menu_name, position, visible)";
 	$query .= " VALUES (";
