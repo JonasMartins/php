@@ -26,7 +26,9 @@
 			$output .= "<Please fix the following errors:";
 			$output .= "<ul>";
 			foreach ($errors as $key => $error) {
-				$output .= "<li>{$error}</li>";
+				$output .= "<li>";
+				$output .= htmlentities($error);
+				$output .= "</li>";
 			}
 			$output .= "</ul>";
 			$output .= "</div>";
@@ -117,7 +119,7 @@
 				$output_html .= "<a href=\"manage_content.php?subject=";
 				$output_html .=  urlencode($subject["id"]);
 				$output_html .= "\">";
-				$output_html .=  $subject["menu_name"];
+				$output_html .=  htmlentities($subject["menu_name"]);
 				$output_html .= "</a>";  
 
 				/*	Pages  */
@@ -132,7 +134,7 @@
 					$output_html .= "<a href=\"manage_content.php?page=";
 					$output_html .=  urlencode($page["id"]); 
 					$output_html .= "\">";
-					$output_html .=  $page["menu_name"];
+					$output_html .=  htmlentities($page["menu_name"]);
 					$output_html .= "</a>"; 
 					$output_html .= "</li>"; 
 				}
