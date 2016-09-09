@@ -29,6 +29,11 @@ require_once("../includes/functions.php");
 			 	echo $current_subject["menu_name"]; ?><br />
 	
 
+			 	<a href="edit_subject.php?subject=<?php
+			 	/* passando o id do subject que eu quero editar*/
+			 	echo $current_subject["id"]; ?>">Edit Subject</a>
+
+
 	<?php }elseif($current_page) { ?>
 		<h2>Manage Page</h2>
 			Menu name: <?php 
