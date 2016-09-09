@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
 	// result is a resource type, a new one
 	if($result){
 		//success, redirect_to... 
-		$message = "Subject creation success.";
+		$_SESSION["message"] = "Subject creation success.";
 		redirect_to("manage_content.php");
 	}else{
 		$message = "Subject creation faild.";

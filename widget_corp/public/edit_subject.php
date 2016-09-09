@@ -2,6 +2,7 @@
 require_once("../includes/db_connection.php");
 require_once("../includes/functions.php");
 require_once("../includes/session.php");
+require_once("../includes/validation_functions.php");
 find_selected_page(); ?>
 
 <?php
@@ -11,6 +12,49 @@ find_selected_page(); ?>
 	}
 ?>
 
+<?php 
+if(isset($_POST['submit'])){
+
+	// se o botão de submeter um subject for acionado...
+	// tem um erro exatamente em mysqli_query....
+	// esssa linha faz a aplicação quebrar....
+
+	$menu_name = mysqli_prep($_POST["menu_name"]);
+	$position = (int) $_POST["position"];
+	$visible = (int) $_POST["visible"];
+
+	// validations
+	$required_fields = array("menu_name", "position", "visible");
+	validate_presences($required_fields);
+
+	$fields_with_max_lengths = array("menu_name" => 30);
+	validate_max_lengths($fields_with_max_lengths);
+
+	if(empty($errors)){
+		// faz a atualização	
+		$id = $current_subject["id"];
+		$query  = "UPDATE subjects SET";
+		$query .= " menu_name = '{$menu_name}',";
+		$query .= " position = {$position},";
+		$query .= " visible = {$visible}";
+		$query .= " WHERE id = {$id}";
+		$query .= " LIMIT 1";
+		
+		$result = mysqli_query($connection,$query);
+		// result is a resource type, a new one
+		if($result && mysqli_affected_rows($connection)==1 ){
+			//success, redirect_to... 
+			$_SESSION["message"] = "Subject updated success.";
+			redirect_to("manage_content.php");
+		}else{
+			$message = "Subject update faild.";
+		}
+	}
+}else{ 
+}
+
+?>
+
 <?php include("../includes/layouts/header.php");?>
 
 <div id="main">
@@ -18,12 +62,13 @@ find_selected_page(); ?>
 		<?php echo navigation($current_subject,$current_page); ?>
 		</div>
 	<div id="page">
-	<?php echo message(); ?>
-	<?php $errors = errors(); ?>
+	<?php if(!empty($message))
+		echo "<div class=\"message\">" . $message . "</div>"; // message agora é apenas uma variável
+	?>
 	<?php echo form_errors($errors); ?>
 
 	<h2>Edit Subject <?php echo $current_subject["menu_name"];  ?></h2>
-	<form action="create_subject.php" method="post">
+	<form action="edit_subject.php?subject=<?php echo $current_subject["id"];  ?>" method="post">
 		<p>Menu Name:
 			<input type="text" name="menu_name" value="<?php echo $current_subject["menu_name"];  ?>"/>
 		</p>
