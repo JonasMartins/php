@@ -63,14 +63,14 @@ if(isset($_POST['submit'])){
 		</div>
 	<div id="page">
 	<?php if(!empty($message))
-		echo "<div class=\"message\">" . htmlentities($message) . "</div>"; // message agora é apenas uma variável
+		echo "<div class=\"message\">" .htmlentities( $message) . "</div>"; // message agora é apenas uma variável
 	?>
 	<?php echo form_errors($errors); ?>
 
 	<h2>Edit Subject <?php echo htmlentities($current_subject["menu_name"]);  ?></h2>
 	<form action="edit_subject.php?subject=<?php echo urlencode($current_subject["id"]);  ?>" method="post">
 		<p>Menu Name:
-			<input type="text" name="menu_name" value="<?php echo $htmlentities(current_subject["menu_name"]);  ?>"/>
+			<input type="text" name="menu_name" value="<?php echo htmlentities($current_subject["menu_name"]);  ?>"/>
 		</p>
 		<p>Position:
 			<select name="position">
