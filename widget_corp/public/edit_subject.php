@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
 		</div>
 	<div id="page">
 	<?php if(!empty($message))
-		echo "<div class=\"message\">" .htmlentities( $message) . "</div>"; // message agora é apenas uma variável
+		echo "<div class=\"message\">" .htmlentities($message) . "</div>"; // message agora é apenas uma variável
 	?>
 	<?php echo form_errors($errors); ?>
 
