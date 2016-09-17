@@ -5,22 +5,21 @@
 </head>
 <body>
 <?php
+	$a = "hello";
+	$hello = "Hello everyone.";
+	echo $a ."<br />";
+	echo $hello."<br />";
 	
-	/*
-	$a = "Hello";
-	$hello = "Hello Everyone";
-	$b = "test";
-
-	$testing = array('a','b');
-
-	foreach ($testing as $seat) {
-		# code...
-		echo $$seat . "<br />";
-	}
-	echo $ a ."<br />";
+	echo $$a."<br />";
 	
-	i don't have this in php 7
-	*/
+	// What does $$var[1] mean?
+	// #1: get the first element then evaluate dynamically?
+	// #2: evaluate dynamically then get the first element?
+	
+	// Use {} to make it clear:
+	// echo ${$var[1]};  // for #1
+	// echo ${$var}[1];	 // for #2
+	
 ?>
 </body>
 </html>>
