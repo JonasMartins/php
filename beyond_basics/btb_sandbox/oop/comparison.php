@@ -32,4 +32,4 @@ echo "<br />";
 echo $box === $another_box ? 'true' : 'false';  // false
 echo "<br />";
 
-?>
+?>  
