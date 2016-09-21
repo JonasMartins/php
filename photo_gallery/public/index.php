@@ -41,21 +41,45 @@ echo "<hr />";
 	eis as suas diferenças.
 
 */
-// record pois isto é um array...
-$record = User::find_by_id(1);
-//echo $record['username'];
 
+/*
+	Anteriormente... as minhas queries 
+	retornavam arrays...
 
+	record pois isto é um array...
+	$record = User::find_by_id(1);
+	echo $record['username']; */
 
+/*
 
-// isso não é um array, mas um atributo de um objeto
-// before fullname: echo $user->username;
-// after full name:
+// Retornando Objetos:
+$user = User::find_by_id(1);
 echo $user->full_name();
 
 echo "<hr />";
 
+// Um conjunto de objetos user 
+$users = User::find_all();
+// assim usamos um foreach agora...
+foreach ($users as $user) {
+	echo "User: ". $user->username ."<br />";
+	echo "Name: ". $user->full_name() ."<br />";
+}
 
+*/
+
+//$sql = "SELECT * FROM users WHERE id=1 LIMIT 1";
+
+$user = User::find_by_id(1);
+echo $user->full_name();
+
+echo "<hr />";
+
+$users = User::find_all();
+foreach($users as $user) {
+  echo "User: ". $user->username ."<br />";
+  echo "Name: ". $user->full_name() ."<br /><br />";
+}
 
 
 /*
