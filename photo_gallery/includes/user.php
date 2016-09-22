@@ -114,16 +114,6 @@ class User {
     $result_array = self::find_by_sql($sql);
     return !empty($result_array) ? array_shift($result_array) : false;
   }
-  
-  public function full_name() {
-    if(isset($this->first_name) && isset($this->last_name)) {
-      return $this->first_name . " " . $this->last_name;
-    } else {
-      return "";
-    }
-  }
-
-
 
 }
 
