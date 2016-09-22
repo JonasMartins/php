@@ -1,8 +1,8 @@
 <?php
-require_once("../includes/database.php");
 require_once("../includes/functions.php");
+require_once("../includes/database.php");
 // auto_load faz isso por mim.
-require_once("../includes/user.php");
+//require_once("../includes/user.php");
 
 /*
 			--- Exemplo antigo.....
@@ -69,10 +69,15 @@ foreach ($users as $user) {
 }
 
 */
-
 //$sql = "SELECT * FROM users WHERE id=1 LIMIT 1";
 
+echo "test";
+
+
+echo " test";
+
 $user = User::find_by_id(1);
+
 echo $user->full_name();
 
 echo "<hr />";

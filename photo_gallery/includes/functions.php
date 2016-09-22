@@ -22,7 +22,6 @@ function output_message($message="") {
     return "";
   }
 }
-
   /*  Esse autoload, é chamado sempre que for necessário
   a adição de um objeto a ser usado, ou seja sem precisar
   escrever sempre o require_once, esta função carrega sempre
