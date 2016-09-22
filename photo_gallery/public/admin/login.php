@@ -9,22 +9,26 @@ if($session->is_logged_in()) {
 }
 
 // Remember to give your form's submit tag a name="submit" attribute!
+
+// Notar que este if é ativado se o submit for acionado... 
+// logo abaixo
+
 if (isset($_POST['submit'])) { // Form has been submitted.
 
   $username = trim($_POST['username']);
   $password = trim($_POST['password']);
   
+
   // Check database to see if username/password exist.
 	$found_user = User::authenticate($username, $password);
-	
 	//processo de login
-
+  //$found_user = true;
   if ($found_user) {
     $session->login($found_user);
     redirect_to("index.php");
   } else {
     // username/password combo was not found in the database
-    $message = "Username/password combination incorrect.";
+    $message = " Username/password combination incorrect.";
   }
   
 } else { // Form has not been submitted.

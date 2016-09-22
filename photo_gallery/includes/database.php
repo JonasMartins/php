@@ -42,7 +42,8 @@ class MySQLDatabase {
 		$this->confirm_query($result);
 		return $result;
 	}
-	
+	// corrigir esta função, não está retornando a string limpa
+	// como deveria.
 	public function escape_value( $value ) {
 		if( $this->real_escape_string_exists ) { // PHP v4.3.0 or higher
 			// undo any magic quote effects so mysql_real_escape_string can do the work

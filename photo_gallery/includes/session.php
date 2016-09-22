@@ -23,7 +23,7 @@ class Session {
   public function is_logged_in() {
     return $this->logged_in;
   }
-
+  // key point here
   public function login($user) {
     // database should find user based on username/password
     if($user){

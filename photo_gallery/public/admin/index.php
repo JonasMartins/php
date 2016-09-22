@@ -1,6 +1,7 @@
 <?php
 require_once('../../includes/functions.php');
 require_once('../../includes/session.php');
+// se is_logged_in reotrnar não true... então
 if (!$session->is_logged_in()) { redirect_to("login.php"); }
 ?>
 <html>

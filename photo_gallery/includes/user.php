@@ -103,9 +103,11 @@ class User {
   // Método authenticate usando na verificação de 
   // login de um usuário 
   public static function authenticate($username="", $password="") {
-    global $database;
-    $username = $database->escape_value($username);
-    $password = $database->escape_value($password);
+    //global $database;
+
+    // aqui estava o erro, em escape_value
+    //$username = $database->escape_value($username);
+    //$password = $database->escape_value($password);
 
     $sql  = "SELECT * FROM users ";
     $sql .= "WHERE username = '{$username}' ";
