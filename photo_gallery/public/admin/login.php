@@ -1,8 +1,8 @@
 <?php
-require_once("../../includes/functions.php");
-require_once("../../includes/session.php");
-require_once("../../includes/database.php");
-require_once("../../includes/user.php");
+// não posso usar os helpers antes desses ../..
+// apoś passar por essa linha poderei usa-los nos 
+// outros arquivos
+require_once("../../includes/initialize.php");
 
 if($session->is_logged_in()) {
   redirect_to("index.php");

@@ -4,7 +4,7 @@
 	está obsoleto hoje em dia
 */
 
-require_once("config.php");
+require_once(LIB_PATH.DS."config.php");
 
 class MySQLDatabase {
 	
@@ -43,7 +43,7 @@ class MySQLDatabase {
 		return $result;
 	}
 	// corrigir esta função, não está retornando a string limpa
-	// como deveria.
+	// como deveria
 	public function escape_value( $value ) {
 		if( $this->real_escape_string_exists ) { // PHP v4.3.0 or higher
 			// undo any magic quote effects so mysql_real_escape_string can do the work
