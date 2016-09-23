@@ -37,5 +37,11 @@ function __autoload($class_name) {
     die("The file {$class_name}.php could not be found.");
   }
 }
+// helper para acrescentar o footer e header sem
+// ter que escrever sempre em cada arquivo
+function  include_layout_template($template=""){
+  include(SITE_ROOT.DS.'public'.DS.'layouts'.DS.$template);
+}
+
 
 ?>
