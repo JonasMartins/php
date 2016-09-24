@@ -25,3 +25,4 @@ echo is_dir('..') ? 'yes' : 'no';
 echo "<br />";
 
 ?>
+
