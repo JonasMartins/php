@@ -1,6 +1,6 @@
 <?php
 
-	// Define the core paths
+// Define the core paths
 // Define them as absolute paths to make sure that require_once works as expected
 
 // DIRECTORY_SEPARATOR is a PHP pre-defined constant
@@ -19,6 +19,17 @@ defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
 define('DS', DIRECTORY_SEPARATOR);
 define('SITE_ROOT', DS.'var'.DS.'www'.DS.'html'.DS.'php'.DS.'photo_gallery');
 define('LIB_PATH', SITE_ROOT.DS.'includes');
+
+// echo DS."<br />";
+// echo SITE_ROOT."<br />";
+// echo LIB_PATH."<br />";
+// echo SITE_ROOT."<br />";
+
+// echo LIB_PATH.DS.'config.php'."<br />";
+// echo LIB_PATH.DS.'functions.php'."<br />";
+// echo LIB_PATH.DS.'session.php'."<br />";
+// echo LIB_PATH.DS.'database_object.php'."<br />";
+// echo LIB_PATH.DS.'user.php'."<br />";
 
 // load config file first
 require_once(LIB_PATH.DS.'config.php');

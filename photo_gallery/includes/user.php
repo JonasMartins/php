@@ -6,7 +6,7 @@ require_once(LIB_PATH.DS.'database.php');
 class User extends DatabaseObject{
 
 	// like database fields
-  protected static $tale_name="users";
+  protected static $table_name="users";
   public $id;
   public $username;
   public $password;
@@ -14,6 +14,10 @@ class User extends DatabaseObject{
   public $last_name;
 
 
+  public static function who() {
+    echo __CLASS__;
+  }
+  
   public function full_name(){
     if(isset($this->first_name) && isset($this->last_name)){
       return $this->first_name . " " . $this->last_name;

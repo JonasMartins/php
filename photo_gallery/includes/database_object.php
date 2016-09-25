@@ -8,9 +8,10 @@ class DatabaseObject{
 
 
 	// + Instruções : video 6-13 late static linding
-
-
-
+  public static function test() {
+        echo static::who(); // Here comes Late Static Bindings
+        echo static::$table_name;
+    }
 
 	// se precisar do nome da classe apenas digitar:
 	// $class_name = get_called_class();
@@ -36,7 +37,6 @@ class DatabaseObject{
     return !empty($result_array) ? array_shift($result_array) : false;
   }
   
-
   /* Recebe qualquer string em forma de função
     e já a executa, e ao invés de simples retornar
     um array, já faz uma varredura no array e já  
