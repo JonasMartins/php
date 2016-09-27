@@ -13,18 +13,31 @@ $upload_errors = array(
   UPLOAD_ERR_EXTENSION 	=> "File upload stopped by extension."
 );
 
-$error = $_FILES['file_upload']['error'];
-$message = $upload_errors[$error];
-
-echo "<pre>";
-// imprimir o array...
-// print_r($_FILES['file_upload']); // antes com o erro...
-print_r($_FILES);
-echo "</pre>";
-echo "<hr />";
+if(isset($_POST['submit'])) {
+	// process the form data
+	$tmp_file = $_FILES['file_upload']['tmp_name'];
+	$target_file = basename($_FILES['file_upload']['name']);
+	$upload_dir = "uploads";
+  
+	// You will probably want to first use file_exists() to make sure
+	// there isn't already a file by the same name.
+	
+	// move_uploaded_file will return false if $tmp_file is not a valid upload file 
+	// or if it cannot be moved for any other reason
+	// o arquivo a ser enviado e o diretorio onde deve estar
+	// estes são os argumentos dessa função
+	if(move_uploaded_file($tmp_file, $upload_dir."/".$target_file)) {
+		$message = "File uploaded successfully.";
+	} else {
+		// not working display the messages
+		$error = $_FILES['file_upload']['error'];
+		$message = $upload_errors[$error];
+	}
+	
+}
 ?>
 <html>
-	<head>
+	<head> 
 		<title>Upload</title>
 	</head>
 	<body>
