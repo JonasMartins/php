@@ -1,4 +1,4 @@
-<?php
+ <?php
 // não posso usar os helpers antes desses ../..
 // apoś passar por essa linha poderei usa-los nos 
 // outros arquivos
