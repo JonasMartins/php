@@ -13,11 +13,29 @@ $upload_errors = array(
   UPLOAD_ERR_EXTENSION 	=> "File upload stopped by extension."
 );
 
+echo "<pre>";
+print_r($_FILES['userfile']); //finnaly working
+echo "</pre>";
+echo "<hr />";
+
+// process the form data
+$tmp_file = $_FILES['userfile']['tmp_name'];
+$target_file = basename($_FILES['userfile']['name']);
+$upload_dir = "uploads";
+
+
 if(isset($_POST['submit'])) {
-	// process the form data
-	$tmp_file = $_FILES['file_upload']['tmp_name'];
-	$target_file = basename($_FILES['file_upload']['name']);
-	$upload_dir = "uploads";
+	if (is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+   echo "O arquivo ". $_FILES['userfile']['name'] ." foi enviado com sucesso. <br />";
+   echo "Target file: {$target_file} <br />";
+   echo "Mostrando o conteúdo <br />";
+   readfile($_FILES['userfile']['tmp_name']);
+} else {
+   echo "Possível ataque de envio de arquivo: ";
+   echo "nome do arquivo '". $_FILES['userfile']['tmp_name'] . "'.";
+}
+
+	
   
 	// You will probably want to first use file_exists() to make sure
 	// there isn't already a file by the same name.
@@ -29,8 +47,7 @@ if(isset($_POST['submit'])) {
 	if(move_uploaded_file($tmp_file, $upload_dir."/".$target_file)) {
 		$message = "File uploaded successfully.";
 	} else {
-		// not working display the messages
-		$error = $_FILES['file_upload']['error'];
+		$error = $_FILES['userfile']['error'];
 		$message = $upload_errors[$error];
 	}
 	
@@ -59,10 +76,11 @@ if(isset($_POST['submit'])) {
 // You can round it unless the precision matters.
 ?>
 		<?php if(!empty($message)) { echo "<p>{$message}</p>"; } ?>
-		<form action="upload.php" enctype="multipart/form-data" method="POST">
-
+		<form enctype="multipart/form-data" action="upload.php" method="POST">
+			 <!-- MAX_FILE_SIZE deve preceder o campo input -->
 			<input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
-			<input type="file" name="file_upload " />
+			 <!-- O Nome do elemento input determina o nome da array $_FILES -->
+			<input name="userfile" type="file" />
 
 			<input type="submit" name="submit" value="upload">
 		</form>
