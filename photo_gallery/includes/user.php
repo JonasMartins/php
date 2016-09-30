@@ -41,8 +41,33 @@ class User extends DatabaseObject{
     return !empty($result_array) ? array_shift($result_array) : false;
   }
 
+    public function create() {
+    global $database;
+    // Don't forget your SQL syntax and good habits:
+    // - INSERT INTO table (key, key) VALUES ('value', 'value')
+    // - single-quotes around all values
+    // - escape all values to prevent SQL injection
+    $sql = "INSERT INTO users (";
+    $sql .= "username, password, first_name, last_name";
+    $sql .= ") VALUES ('";
+    $sql .= $database->escape_value($this->username) ."', '";
+    $sql .= $database->escape_value($this->password) ."', '";
+    $sql .= $database->escape_value($this->first_name) ."', '";
+    $sql .= $database->escape_value($this->last_name) ."')";
+    if($database->query($sql)) {
+      $this->id = $database->insert_id();
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-  
+  public function update() {
+  }
+
+  public function delete() {
+  }
+    
 
 }
 
