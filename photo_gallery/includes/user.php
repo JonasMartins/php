@@ -41,9 +41,8 @@ class User extends DatabaseObject{
     return !empty($result_array) ? array_shift($result_array) : false;
   }
 
-  /*
-
-  // falta testar ainda....
+/*
+// falta testar ainda....
   protected static function attributes(){
     // return an array of attributes keys and their values
     return get_object_vars($this);
@@ -59,8 +58,8 @@ class User extends DatabaseObject{
     }
     return $clean_attributes;
   }
+  
   */
-
 
   /*
 
@@ -128,12 +127,12 @@ class User extends DatabaseObject{
   */
 
   // // Must be present in every object class
-  // public static function get_id(){
-  //   return $this->id;
-  // }
-  // public static function set_id($id){
-  //   $this->id = $id;
-  // } 
+  public static function get_id(){
+    return $this->id;
+  }
+  public static function set_id($id){
+    $this->id = $id;
+  } 
 
 }
 

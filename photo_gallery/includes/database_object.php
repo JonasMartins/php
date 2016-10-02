@@ -89,19 +89,43 @@ class DatabaseObject{
     return $object;
   }
 
+
+  // falta testar ainda....
+  protected static function attributes(){
+    // return an array of attributes keys and their values
+    return get_object_vars(new static);
+  }
+
+  protected static function sanitized_attributes() {
+    global $database;
+    $clean_attributes = array();
+    // sanitize the values before submitting
+    // Note: does not alter the actual value of each attribute
+    foreach(static::attributes() as $key => $value){
+      $clean_attributes[$key] = $database->escape_value($value);
+    }
+    return $clean_attributes;
+  }
+
+
+
   private static function has_attribute($attribute){
     // get_object_vars retorna um array associado com todos
     // os atributos, incuindo os privados como keys e seus respectivos
     // valores como values
-    $object_vars = static::attributes($this);  
+    $object_vars = static::attributes();  
     // Não á importancia com relação aos valores, apenas
     // precisamos saber se eles de fato existem ou não, retorna true or false
     return array_key_exists($attribute, $object_vars);
 
   }
 
+  // ****** Daqui para baixo o poder do static estava funcionando....
+  // a quesão do get_id ainda é dúvida, pode dar erro
+
+
   /*  FAZENDO O USO DO STATIC DE FORMA ABSTRATA PARA TODAS AS
-  CLASSES QUE EXTENDEREM DATABASE_OBJECT 
+  CLASSES QUE EXTENDEREM DATABASE_OBJECT */
 
  private static function create() {
     global $database;
@@ -163,7 +187,7 @@ class DatabaseObject{
     // after calling $user->delete().
   }
 
-  */
+  
 
 	
 }
