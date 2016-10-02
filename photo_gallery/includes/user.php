@@ -41,6 +41,29 @@ class User extends DatabaseObject{
     return !empty($result_array) ? array_shift($result_array) : false;
   }
 
+  /*
+
+  // falta testar ainda....
+  protected static function attributes(){
+    // return an array of attributes keys and their values
+    return get_object_vars($this);
+  }
+
+  protected static function sanitized_attributes() {
+    global $database;
+    $clean_attributes = array();
+    // sanitize the values before submitting
+    // Note: does not alter the actual value of each attribute
+    foreach($this->attributes() as $key => $value){
+      $clean_attributes[$key] = $database->escape_value($value);
+    }
+    return $clean_attributes;
+  }
+  */
+
+
+  /*
+
   public function save() {
     // A new record won't have an id yet.
     return isset($this->id) ? $this->update() : $this->create();
@@ -52,7 +75,7 @@ class User extends DatabaseObject{
     // - INSERT INTO table (key, key) VALUES ('value', 'value')
     // - single-quotes around all values
     // - escape all values to prevent SQL injection
-    $sql = "INSERT INTO users (";
+    $sql = "INSERT INTO ".self::$table_name." (";
     $sql .= "username, password, first_name, last_name";
     $sql .= ") VALUES ('";
     $sql .= $database->escape_value($this->username) ."', '";
@@ -67,14 +90,13 @@ class User extends DatabaseObject{
     }
   }
 
-
   public function update() {
     global $database;
     // Don't forget your SQL syntax and good habits:
     // - UPDATE table SET key='value', key='value' WHERE condition
     // - single-quotes around all values
     // - escape all values to prevent SQL injection
-    $sql = "UPDATE users SET ";
+    $sql = "UPDATE ".self::$table_name." SET ";
     $sql .= "username='". $database->escape_value($this->username) ."', ";
     $sql .= "password='". $database->escape_value($this->password) ."', ";
     $sql .= "first_name='". $database->escape_value($this->first_name) ."', ";
@@ -90,8 +112,8 @@ class User extends DatabaseObject{
     // - DELETE FROM table WHERE condition LIMIT 1
     // - escape all values to prevent SQL injection
     // - use LIMIT 1
-    $sql = "DELETE FROM users ";
-    $sql .= "WHERE id=". $database->escape_value($this->id);
+    $sql = "DELETE FROM ".self::$table_name;
+    $sql .= " WHERE id=". $database->escape_value($this->id);
     $sql .= " LIMIT 1";
     $database->query($sql);
     return ($database->affected_rows() == 1) ? true : false;
@@ -103,7 +125,15 @@ class User extends DatabaseObject{
     // but, for example, we can't call $user->update() 
     // after calling $user->delete().
   }
-    
+  */
+
+  // // Must be present in every object class
+  // public static function get_id(){
+  //   return $this->id;
+  // }
+  // public static function set_id($id){
+  //   $this->id = $id;
+  // } 
 
 }
 

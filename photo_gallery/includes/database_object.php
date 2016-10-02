@@ -10,7 +10,7 @@ class DatabaseObject{
 	// + Instruções : video 6-13 late static linding
   public static function test() {
         echo static::who(); // Here comes Late Static Bindings
-        echo static::$table_name;
+        echo "<br />"."This Class table name: ".static::$table_name."<br />";
     }
 
 	// se precisar do nome da classe apenas digitar:
@@ -33,7 +33,6 @@ class DatabaseObject{
      se o array es tiver vazio... retorna false
      se não faz um array shift no array resultante
      * fetch_array retira o primeiro elemento do array */
-
     return !empty($result_array) ? array_shift($result_array) : false;
   }
   
@@ -90,17 +89,81 @@ class DatabaseObject{
     return $object;
   }
 
-  private function has_attribute($attribute){
+  private static function has_attribute($attribute){
     // get_object_vars retorna um array associado com todos
     // os atributos, incuindo os privados como keys e seus respectivos
     // valores como values
-    $object_vars = get_object_vars($this);
+    $object_vars = static::attributes($this);  
     // Não á importancia com relação aos valores, apenas
     // precisamos saber se eles de fato existem ou não, retorna true or false
     return array_key_exists($attribute, $object_vars);
 
   }
 
+  /*  FAZENDO O USO DO STATIC DE FORMA ABSTRATA PARA TODAS AS
+  CLASSES QUE EXTENDEREM DATABASE_OBJECT 
+
+ private static function create() {
+    global $database;
+    // Don't forget your SQL syntax and good habits:
+    // - INSERT INTO table (key, key) VALUES ('value', 'value')
+    // - single-quotes around all values
+    // - escape all values to prevent SQL injection
+    $attributes = static::sanitized_attributes();
+    $sql = "INSERT INTO ".static::$table_name." (";
+    $sql .= join(", ", array_keys($attributes));
+    $sql .= ") VALUES ('";
+    $sql .= join("', '", array_values($attributes));
+    $sql .= "')";
+    if($database->query($sql)) {
+      // ????? it worked?
+      static::set_id($database->insert_id());
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  private static function update() {
+    global $database;
+    // Don't forget your SQL syntax and good habits:
+    // - UPDATE table SET key='value', key='value' WHERE condition
+    // - single-quotes around all values
+    // - escape all values to prevent SQL injection
+    $attributes = static::sanitized_attributes();
+    $attribute_pairs = array();
+    foreach($attributes as $key => $value) {
+      $attribute_pairs[] = "{$key}='{$value}'";
+    }
+    $sql = "UPDATE ".static::$table_name." SET ";
+    $sql .= join(", ", $attribute_pairs);
+    $sql .= " WHERE id=". $database->escape_value(static::get_id());
+    $database->query($sql);
+    return ($database->affected_rows() == 1) ? true : false;
+  }
+
+
+  private static function delete() {
+    global $database;
+    // Don't forget your SQL syntax and good habits:
+    // - DELETE FROM table WHERE condition LIMIT 1
+    // - escape all values to prevent SQL injection
+    // - use LIMIT 1
+    $sql = "DELETE FROM ".static::$table_name;
+    $sql .= " WHERE id=". $database->escape_value(static::get_id());
+    $sql .= " LIMIT 1";
+    $database->query($sql);
+    return ($database->affected_rows() == 1) ? true : false;
+  
+    // NB: After deleting, the instance of User still 
+    // exists, even though the database entry does not.
+    // This can be useful, as in:
+    //   echo $user->first_name . " was deleted";
+    // but, for example, we can't call $user->update() 
+    // after calling $user->delete().
+  }
+
+  */
 
 	
 }
