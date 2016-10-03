@@ -3,8 +3,7 @@
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class DatabaseObject{
-
+class DatabaseObject {
 
 
 	// + Instruções : video 6-13 late static linding
@@ -89,11 +88,35 @@ class DatabaseObject{
     return $object;
   }
 
-
-  // falta testar ainda....
+  /**
+   * @return [type] booelan [return an array of attributes
+   *  keys and their values] [type] array
+   *
+   *  Fuñção refatorada  que usa apenas os campos
+   *  usados pelo banco de dados para aquela classe
+   *  específica.
+   *
+   *  Obs: Sempre lembrar de get_called_class()...
+   */
   protected static function attributes(){
-    // return an array of attributes keys and their values
-    return get_object_vars(new static);
+    
+    /* Return object vars é de certa forma incoveniente
+    para a nossa aplicação uma vez que traz todas as 
+    variáveis e campos da classe, mas na verdade 
+    precisaríamos de apenas alguns campos relativos
+    ao banco de dados */
+    // versão antiga trazendo todos os tipos de 
+    // variáveis da classe static
+    // return get_object_vars(new static);
+    
+    $attributes = array();
+    foreach(static::$db_fields as $field) {
+      if(property_exists(get_called_class(), $field)) {
+        $attributes[$field] = get_called_class()->$field;
+      }
+    }
+    return $attributes;
+
   }
 
   protected static function sanitized_attributes() {
@@ -106,7 +129,10 @@ class DatabaseObject{
     }
     return $clean_attributes;
   }
-
+  /**
+   *  DockBlockr
+   * 
+   */
 
 
   private static function has_attribute($attribute){
@@ -114,8 +140,12 @@ class DatabaseObject{
     // os atributos, incuindo os privados como keys e seus respectivos
     // valores como values
     $object_vars = static::attributes();  
-    // Não á importancia com relação aos valores, apenas
-    // precisamos saber se eles de fato existem ou não, retorna true or false
+    
+    /**
+     * Não á importancia com relação aos valores, apenas
+     *  precisamos saber se eles de fato existem ou não, 
+     *  retorna true or false
+     */
     return array_key_exists($attribute, $object_vars);
 
   }
@@ -150,10 +180,15 @@ class DatabaseObject{
 
   private static function update() {
     global $database;
-    // Don't forget your SQL syntax and good habits:
-    // - UPDATE table SET key='value', key='value' WHERE condition
-    // - single-quotes around all values
-    // - escape all values to prevent SQL injection
+    
+    /**
+     * Don't forget your SQL syntax and good habits:
+     * UPDATE table SET key='value', key='value' WHERE 
+     * condition
+     * single-quotes around all values
+     *  - escape all values to prevent SQL injection
+     */
+    
     $attributes = static::sanitized_attributes();
     $attribute_pairs = array();
     foreach($attributes as $key => $value) {
@@ -169,22 +204,31 @@ class DatabaseObject{
 
   private static function delete() {
     global $database;
-    // Don't forget your SQL syntax and good habits:
-    // - DELETE FROM table WHERE condition LIMIT 1
-    // - escape all values to prevent SQL injection
-    // - use LIMIT 1
+    /**
+     * [$sql description]
+     * @var string
+     * Don't forget your SQL syntax and good habits:
+    - DELETE FROM table WHERE condition LIMIT 1
+    - escape all values to prevent SQL injection
+    - use LIMIT 1
+     */
     $sql = "DELETE FROM ".static::$table_name;
     $sql .= " WHERE id=". $database->escape_value(static::get_id());
     $sql .= " LIMIT 1";
     $database->query($sql);
     return ($database->affected_rows() == 1) ? true : false;
-  
-    // NB: After deleting, the instance of User still 
-    // exists, even though the database entry does not.
-    // This can be useful, as in:
-    //   echo $user->first_name . " was deleted";
-    // but, for example, we can't call $user->update() 
-    // after calling $user->delete().
+  /**
+    NB: After deleting, the instance of User still exists, 
+    even though the database entry does not.
+   * 
+   *  This can be useful, as in: 
+   *  echo $user->first_name . " was deleted";
+   *  but, for example, we can't call $user->update() 
+   *  after calling $user->delete().
+   *  
+   */
+
+      
   }
 
   

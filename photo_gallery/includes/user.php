@@ -7,17 +7,31 @@ class User extends DatabaseObject{
 
 	// like database fields
   protected static $table_name="users";
+  /**
+   * [$db_fields description]
+   * @var array
+   *
+   * Lista com os campos extritamente necessários para
+   * o meu banco de dados, sem os campos que apenas
+   * são importantes para minha classe users
+   */
+  protected static $db_fields = array('id', 'username', 'password', 'first_name', 'last_name');
+
   public $id;
   public $username;
   public $password;
   public $first_name;
   public $last_name;
 
-
+  /**
+   * @return [type]
+   * Classe teste para demonstrar o poder de 
+   * static
+   */
   public static function who() {
     echo __CLASS__;
   }
-  
+
   public function full_name(){
     if(isset($this->first_name) && isset($this->last_name)){
       return $this->first_name . " " . $this->last_name;
@@ -26,6 +40,16 @@ class User extends DatabaseObject{
 
   // Método authenticate usando na verificação de 
   // login de um usuário 
+  
+  /**
+   * 
+   * @param [type] $[username] [<description>]  string
+   * @param [type] $[password] [<description>]  string
+   * @return [type] [retorna true or false] [type]
+   *
+   * Método authenticate que verifica se a os dados 
+   * do usuário foram insridos e valida o seu login
+   */
   public static function authenticate($username="", $password="") {
     //global $database;
 
