@@ -42,7 +42,14 @@ require_once(LIB_PATH.DS.'session.php');
 require_once(LIB_PATH.DS.'database.php');
 require_once(LIB_PATH.DS.'database_object.php');
 
+/**
+ * 	Just make sure that those classe 
+ * 	are going to be initialized, even if
+ * 	we also have the __autoload function
+ */
+
 // load database-related classes
 require_once(LIB_PATH.DS.'user.php');
+require_once(LIB_PATH.DS.'photograph.php');
 
 ?>

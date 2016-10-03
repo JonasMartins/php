@@ -133,8 +133,6 @@ class DatabaseObject {
    *  DockBlockr
    * 
    */
-
-
   private static function has_attribute($attribute){
     // get_object_vars retorna um array associado com todos
     // os atributos, incuindo os privados como keys e seus respectivos

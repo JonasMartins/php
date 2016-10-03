@@ -5,15 +5,21 @@ require_once(LIB_PATH.DS.'database.php');
 
 class User extends DatabaseObject{
 
-	// like database fields
+	/**
+   * [$table_name description]
+   * @var string
+   * $table_name: a help when static method calls him, 
+   * to be more abstract as possible and help to decide 
+   * what table put in some sql queries. 
+   *    
+   */ 
   protected static $table_name="users";
   /**
    * [$db_fields description]
-   * @var array
-   *
-   * Lista com os campos extritamente necessários para
-   * o meu banco de dados, sem os campos que apenas
-   * são importantes para minha classe users
+   * @var array 
+   * A helper when we want to "clean" the arguments that 
+   * we want over a specifc class, not all the attributes
+   * but only those who concern about our database
    */
   protected static $db_fields = array('id', 'username', 'password', 'first_name', 'last_name');
 
