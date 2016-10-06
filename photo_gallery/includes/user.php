@@ -157,10 +157,10 @@ class User extends DatabaseObject{
   */
 
   // // Must be present in every object class
-  public static function get_id(){
+  public function get_id(){
     return $this->id;
   }
-  public static function set_id($id){
+  public function set_id($id){
     $this->id = $id;
   } 
 

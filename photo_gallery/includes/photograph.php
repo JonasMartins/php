@@ -53,7 +53,7 @@ class Photograph extends DatabaseObject {
  
  	private $temp_path;
   protected $upload_dir="images";
-  
+
   // keep the upload errors in this array
   public $errors=array();
   
@@ -90,6 +90,73 @@ class Photograph extends DatabaseObject {
 			return true;
 		}
 	}
+
+/**
+ * [save description]
+ * @return [type] [description]
+ *
+ *  Aparentemente esse ḿétodo só é interessante
+ *  para a classe photoghaph, todos os campos encontrados
+ *  nela são referentes a essa classe
+ *  Obs: sem nada a ser testado ainda, ainda haverá 
+ *  o momento de debugar todos esses métodos e ver se
+ *  o get_called_class() ou static estão funcionando
+ *  corretamente.
+ *
+ *	Obs: remover todos esses returns no meio do metodo
+ *	se possivel 
+ * 
+ */
+	public function save() {
+		// A new record won't have an id yet.
+		if(isset($this->id)) {
+			// Really just to update the caption
+			$this->update();
+		} else {
+			// Make sure there are no errors
+			// Can't save if there are pre-existing errors
+		  if(!empty($this->errors)) { return false; }
+			// Make sure the caption is not too long for the DB
+		  if(strlen($this->caption) <= 255) {
+				$this->errors[] = "The caption can only be 255 characters long.";
+				return false;
+			}
+		  // Can't save without filename and temp location
+		  if(empty($this->filename) || empty($this->temp_path)) {
+		    $this->errors[] = "The file location was not available.";
+		    return false;
+		  }
+			// Determine the target_path
+		  $target_path = SITE_ROOT .DS. 'public' .DS. $this->upload_dir .DS. $this->filename;
+		  // Make sure a file doesn't already exist in the target location
+		  if(file_exists($target_path)) {
+		    $this->errors[] = "The file {$this->filename} already exists.";
+		    return false;
+		  }
+			// Attempt to move the file 
+			if(move_uploaded_file($this->temp_path, $target_path)) {
+		  	// Success
+				// Save a corresponding entry to the database
+				if($this->create()) {
+					// We are done with temp_path, the file isn't there anymore
+					unset($this->temp_path);
+					return true;
+				}
+			} else {
+				// File was not moved.
+		    $this->errors[] = "The file upload failed, possibly due to incorrect permissions on the upload folder.";
+		    return false;
+			}
+		}
+	}
+
+	// Must be present in every object class
+  public function get_id(){
+    return $this->id;
+  }
+  public function set_id($id){
+    $this->id = $id;
+  }
 
 }
 

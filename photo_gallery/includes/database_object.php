@@ -168,8 +168,7 @@ class DatabaseObject {
     $sql .= join("', '", array_values($attributes));
     $sql .= "')";
     if($database->query($sql)) {
-      // ????? it worked?
-      static::set_id($database->insert_id());
+      get_called_class()->set_id($database->insert_id());
       return true;
     } else {
       return false;
@@ -194,7 +193,7 @@ class DatabaseObject {
     }
     $sql = "UPDATE ".static::$table_name." SET ";
     $sql .= join(", ", $attribute_pairs);
-    $sql .= " WHERE id=". $database->escape_value(static::get_id());
+    $sql .= " WHERE id=". $database->escape_value(get_called_class()->get_id());
     $database->query($sql);
     return ($database->affected_rows() == 1) ? true : false;
   }
@@ -211,7 +210,7 @@ class DatabaseObject {
     - use LIMIT 1
      */
     $sql = "DELETE FROM ".static::$table_name;
-    $sql .= " WHERE id=". $database->escape_value(static::get_id());
+    $sql .= " WHERE id=". $database->escape_value(get_called_class()->get_id());
     $sql .= " LIMIT 1";
     $database->query($sql);
     return ($database->affected_rows() == 1) ? true : false;
@@ -224,12 +223,7 @@ class DatabaseObject {
    *  but, for example, we can't call $user->update() 
    *  after calling $user->delete().
    *  
-   */
-
-      
+   */   
   }
 
-  
-
-	
 }
