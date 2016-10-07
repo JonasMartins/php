@@ -7,11 +7,10 @@
 
 $user = User::find_by_id(1);
 echo $user->full_name();
-$user->who();
-
-//User::test();
 
 echo "<hr />";
+
+
 
 $users = User::find_all();
 foreach($users as $user) {
@@ -21,16 +20,6 @@ foreach($users as $user) {
 
 echo "<br />";
 
-$array = User::attributes();
-print_r($array);
-
-/**
- *	funções a debugar: 
- *	
- * 	attributes : OK
- *
- * 
- */
 
 ?>
 <?php include_layout_template('footer.php'); ?>
