@@ -112,12 +112,17 @@ class DatabaseObject {
     $attributes = array();
     foreach(static::$db_fields as $field) {
       if(property_exists(get_called_class(), $field)) {
-        $attributes[$field] = get_called_class()->$field;
+        $attributes[$field] = $field;
       }
     }
     return $attributes;
 
   }
+
+  public static function get_att(){
+    return static::$db_fields;
+  }
+
 
   protected static function sanitized_attributes() {
     global $database;
@@ -161,7 +166,7 @@ class DatabaseObject {
     // - INSERT INTO table (key, key) VALUES ('value', 'value')
     // - single-quotes around all values
     // - escape all values to prevent SQL injection
-    $attributes = static::sanitized_attributes();
+    $attributes = sanitized_attributes();
     $sql = "INSERT INTO ".static::$table_name." (";
     $sql .= join(", ", array_keys($attributes));
     $sql .= ") VALUES ('";
@@ -186,7 +191,7 @@ class DatabaseObject {
      *  - escape all values to prevent SQL injection
      */
     
-    $attributes = static::sanitized_attributes();
+    $attributes = sanitized_attributes();
     $attribute_pairs = array();
     foreach($attributes as $key => $value) {
       $attribute_pairs[] = "{$key}='{$value}'";

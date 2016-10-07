@@ -1,32 +1,32 @@
-<?php /**
- * 	AFTER READ DESCRIPTION IN CONFIG.PHP, TO HOW TO LOGIN
- * 	ON MYSQL TERMINAL:
- * 	
- * 	Photographs table 
- * 	
- * 	create table photographs (
- * 	id int(11) not null auto_increment primary key,
- * 	filename varchar(255) not null,
- * 	type varchar(100) not null,
- * 	size int(11) not null,
- * 	caption varchar(255) not null
- * 	);
- * 
- */
-
- ?>
-
 
 <?php 
 // If it's going to need the database, then it's 
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
-/**
- *  This class must be able to upload images
- *  and work with her on oriented obejct way, 
- *  using the same methods from DatabaseObject since 
- *  we inherited from DatabaseObject.
- */
+
+
+	/**
+		* 	AFTER READ DESCRIPTION IN CONFIG.PHP, TO HOW TO LOGIN
+		* 	ON MYSQL TERMINAL:
+		* 	
+		* 	Photographs table 
+		* 	
+		* 	create table photographs (
+		* 	id int(11) not null auto_increment primary key,
+		* 	filename varchar(255) not null,
+		* 	type varchar(100) not null,
+		* 	size int(11) not null,
+		* 	caption varchar(255) not null
+		* 	);
+		* 
+		*
+		*  This class must be able to upload images
+		*  and work with her on oriented obejct way, 
+		*  using the same methods from DatabaseObject since 
+		*  we inherited from DatabaseObject.
+		*  
+		*/
+
 class Photograph extends DatabaseObject {
 	/**
 	 * [$table_name description]
@@ -111,13 +111,13 @@ class Photograph extends DatabaseObject {
 		// A new record won't have an id yet.
 		if(isset($this->id)) {
 			// Really just to update the caption
-			$this->update();
+			Photograph::update();
 		} else {
 			// Make sure there are no errors
 			// Can't save if there are pre-existing errors
 		  if(!empty($this->errors)) { return false; }
 			// Make sure the caption is not too long for the DB
-		  if(strlen($this->caption) <= 255) {
+		  if(strlen($this->caption) > 255) {
 				$this->errors[] = "The caption can only be 255 characters long.";
 				return false;
 			}
@@ -137,7 +137,7 @@ class Photograph extends DatabaseObject {
 			if(move_uploaded_file($this->temp_path, $target_path)) {
 		  	// Success
 				// Save a corresponding entry to the database
-				if($this->create()) {
+				if(Photograph::create()) {
 					// We are done with temp_path, the file isn't there anymore
 					unset($this->temp_path);
 					return true;

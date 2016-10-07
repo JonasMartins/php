@@ -21,7 +21,7 @@ class User extends DatabaseObject{
    * we want over a specifc class, not all the attributes
    * but only those who concern about our database
    */
-  protected static $db_fields = array('id', 'username', 'password', 'first_name', 'last_name');
+  public static $db_fields = array('id', 'username', 'password', 'first_name', 'last_name');
 
   public $id;
   public $username;
@@ -35,7 +35,9 @@ class User extends DatabaseObject{
    * static
    */
   public static function who() {
+    echo "<br />";
     echo __CLASS__;
+    echo "<br />";
   }
 
   public function full_name(){
