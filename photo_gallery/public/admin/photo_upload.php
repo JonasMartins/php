@@ -9,7 +9,6 @@ if (!$session->is_logged_in()) { redirect_to("login.php"); }
 	                            //   1048576 =   1 MB
 	                            //  10485760 =  10 MB
 
-	$message = "";
 	if(isset($_POST['submit'])) {
 		$photo = new Photograph();
 		$photo->caption = $_POST['caption'];
@@ -17,7 +16,8 @@ if (!$session->is_logged_in()) { redirect_to("login.php"); }
 		
 		if($photo->save()) {
 			// Success
-      $message = "Photograph uploaded successfully.";
+      $session->message("Photograph uploaded successfully.");
+      redirect_to('list_photos.php');
 		} else {
 			// Failure
       $message = join("<br />", $photo->errors);
