@@ -44,8 +44,10 @@ class MySQLDatabase {
 		
 		return $result;
 	}
-
-
+	public function save() {
+    // A new record won't have an id yet.
+    return isset($this->id) ? $this->update() : $this->create();
+  }
 	// esta função me atrasou uma vida inteira....
 	// corrigir esta função, não está retornando a string limpa
 	// como deveria
@@ -102,9 +104,6 @@ class MySQLDatabase {
 		}
 	}
 
-	public function get_conne(){
-		return $this->connection;
-	}	
 }
 
 // é possível ficar chamando esse objeto

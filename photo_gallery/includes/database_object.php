@@ -8,7 +8,8 @@ class DatabaseObject {
 /**
  *  ONLY THIS METHODS MUST BE STATIC AT FIRST PLACE....
  *  
- */
+ */	
+
 
     public static function find_all() {
       return static::find_by_sql("SELECT * FROM ".static::$table_name);
@@ -147,13 +148,6 @@ class DatabaseObject {
     return $clean_attributes;
   }
 
-
-  public function save() {
-    // A new record won't have an id yet.
-    return isset($this->id) ? $this->update() : $this->create();
-  }
-
-
 /**
  *  DATABASE CRUD FUNCTIONS 
  */
@@ -165,6 +159,7 @@ class DatabaseObject {
     // - INSERT INTO table (key, key) VALUES ('value', 'value')
     // - single-quotes around all values
     // - escape all values to prevent SQL injection
+    $this->id = $database->insert_id();
     $attributes = $this->sanitized_attributes();
     $sql = "INSERT INTO ".static::$table_name." (";
     $sql .= join(", ", array_keys($attributes));
@@ -172,14 +167,13 @@ class DatabaseObject {
     $sql .= join("', '", array_values($attributes));
     $sql .= "')";
     if($database->query($sql)) {
-      $this->id = $database->insert_id();
       return true;
     } else {
       return false;
     }
   }
 
-  private function update() {
+  public function update($id) {
     global $database;
     
     /**
@@ -189,7 +183,6 @@ class DatabaseObject {
      * single-quotes around all values
      *  - escape all values to prevent SQL injection
      */
-    
     $attributes = $this->sanitized_attributes();
     $attribute_pairs = array();
     foreach($attributes as $key => $value) {
@@ -198,12 +191,19 @@ class DatabaseObject {
     $sql = "UPDATE ".static::$table_name." SET ";
     $sql .= join(", ", $attribute_pairs);
     $sql .= " WHERE id=". $database->escape_value($this->id);
+    // debug....
+    // if($database->query($sql)){
+    // 	return $sql;
+    // }else{
+    // 	return $sql." fail";
+    // }
+    
     $database->query($sql);
-    return ($database->affected_rows() == 1) ? true : false;
+	  return ($database->affected_rows() == 1) ? true : false;
   }
 
 
-  private function delete() {
+  public function delete() {
     global $database;
     /**
      * [$sql description]
@@ -216,7 +216,15 @@ class DatabaseObject {
     $sql = "DELETE FROM ".static::$table_name;
     $sql .= " WHERE id=". $database->escape_value($this->id);
     $sql .= " LIMIT 1";
-    $database->query($sql);
+    // debug....
+    // if($database->query($sql)){
+    // 	return $sql;
+    // }else{
+    // 	return $sql." fail";
+    // }
+   
+   	// tradicional
+   	$database->query($sql);
     return ($database->affected_rows() == 1) ? true : false;
   /**
     NB: After deleting, the instance of User still exists, 

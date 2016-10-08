@@ -37,7 +37,9 @@ if (!$session->is_logged_in()) { redirect_to("login.php"); }
     <p>Caption: <input type="text" name="caption" value="" /></p>
     <input type="submit" name="submit" value="Upload" />
   </form>
-  
+  <ul>
+  	<li><a href="index.php">Get Back to index</a></li>
+  </ul>
 
 <?php include_layout_template('admin_footer.php'); ?>
 		
