@@ -149,6 +149,37 @@ class Photograph extends DatabaseObject {
 			}
 		}
 	}
+	/**
+	 * [image_path description]
+	 * @return [type] [description]
+	 *
+	 * Para evitar que constantemente sendo mudado
+	 * o diretório de imagens aqui, tenha que ser
+	 * feito também na página html.
+	 */
+	public function image_path(){
+		return $this->upload_dir.DS.$this->filename;
+	}
+
+	/**
+	 * [size_as_text description]
+	 * @return [type] [description]
+	 *
+	 * Uma forma mais eficiente de mostrar
+	 * o tamanho da imagem, usando POO para
+	 * sempre chamar esta função quando necessário.
+	 */
+	public function size_as_text() {
+		if($this->size < 1024) {
+			return "{$this->size} bytes";
+		} elseif($this->size < 1048576) {
+			$size_kb = round($this->size/1024);
+			return "{$size_kb} KB";
+		} else {
+			$size_mb = round($this->size/1048576, 1);
+			return "{$size_mb} MB";
+		}
+	}
 }
 
  ?>
