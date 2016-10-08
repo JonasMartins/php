@@ -1,20 +1,60 @@
-<?php
+
+<?php 
 // If it's going to need the database, then it's 
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
+
+	/**
+		* 	AFTER READ DESCRIPTION IN CONFIG.PHP, TO HOW TO LOGIN
+		* 	ON MYSQL TERMINAL:
+		* 	
+		* 	Photographs table 
+		* 	
+		* 	create table photographs (
+		* 	id int(11) not null auto_increment primary key,
+		* 	filename varchar(255) not null,
+		* 	type varchar(100) not null,
+		* 	size int(11) not null,
+		* 	caption varchar(255) not null
+		* 	);
+		* 
+		*
+		*  This class must be able to upload images
+		*  and work with her on oriented obejct way, 
+		*  using the same methods from DatabaseObject since 
+		*  we inherited from DatabaseObject.
+		*  
+		*/
+
 class Photograph extends DatabaseObject {
-	
+	/**
+	 * [$table_name description]
+	 * @var string
+	 * $table_name: a help when static method calls him, 
+	 * to be more abstract as possible and help to decide 
+	 * what table put in some sql queries. 
+	 * 		
+	 */	
 	protected static $table_name="photographs";
+	/**
+	 * [$db_fields description]
+	 * @var array 
+	 * A helper when we want to "clean" the arguments that 
+	 * we want over a specifc class, not all the attributes
+	 * but only those who concern about our database
+	 */
 	protected static $db_fields=array('id', 'filename', 'type', 'size', 'caption');
 	public $id;
 	public $filename;
 	public $type;
 	public $size;
 	public $caption;
-	
-	private $temp_path;
+ 
+ 	private $temp_path;
   protected $upload_dir="images";
+
+  // keep the upload errors in this array
   public $errors=array();
   
   protected $upload_errors = array(
@@ -48,10 +88,25 @@ class Photograph extends DatabaseObject {
 		  $this->size       = $file['size'];
 			// Don't worry about saving anything to the database yet.
 			return true;
-
 		}
 	}
-  
+
+/**
+ * [save description]
+ * @return [type] [description]
+ *
+ *  Aparentemente esse ḿétodo só é interessante
+ *  para a classe photoghaph, todos os campos encontrados
+ *  nela são referentes a essa classe
+ *  Obs: sem nada a ser testado ainda, ainda haverá 
+ *  o momento de debugar todos esses métodos e ver se
+ *  o get_called_class() ou static estão funcionando
+ *  corretamente.
+ *
+ *	Obs: remover todos esses returns no meio do metodo
+ *	se possivel 
+ * 
+ */
 	public function save() {
 		// A new record won't have an id yet.
 		if(isset($this->id)) {
@@ -59,31 +114,25 @@ class Photograph extends DatabaseObject {
 			$this->update();
 		} else {
 			// Make sure there are no errors
-			
 			// Can't save if there are pre-existing errors
 		  if(!empty($this->errors)) { return false; }
-		  
 			// Make sure the caption is not too long for the DB
 		  if(strlen($this->caption) > 255) {
 				$this->errors[] = "The caption can only be 255 characters long.";
 				return false;
 			}
-		
 		  // Can't save without filename and temp location
 		  if(empty($this->filename) || empty($this->temp_path)) {
 		    $this->errors[] = "The file location was not available.";
 		    return false;
 		  }
-			
 			// Determine the target_path
 		  $target_path = SITE_ROOT .DS. 'public' .DS. $this->upload_dir .DS. $this->filename;
-		  
 		  // Make sure a file doesn't already exist in the target location
 		  if(file_exists($target_path)) {
 		    $this->errors[] = "The file {$this->filename} already exists.";
 		    return false;
 		  }
-		
 			// Attempt to move the file 
 			if(move_uploaded_file($this->temp_path, $target_path)) {
 		  	// Success
@@ -100,81 +149,7 @@ class Photograph extends DatabaseObject {
 			}
 		}
 	}
-	
-	
-	// Common Database Methods
-	public static function find_all() {
-		return self::find_by_sql("SELECT * FROM ".self::$table_name);
-  }
-  
-  public static function find_by_id($id=0) {
-    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE id={$id} LIMIT 1");
-		return !empty($result_array) ? array_shift($result_array) : false;
-  }
-  
-  public static function find_by_sql($sql="") {
-    global $database;
-    $result_set = $database->query($sql);
-    $object_array = array();
-    while ($row = $database->fetch_array($result_set)) {
-      $object_array[] = self::instantiate($row);
-    }
-    return $object_array;
-  }
 
-	private static function instantiate($record) {
-		// Could check that $record exists and is an array
-    $object = new self;
-		// Simple, long-form approach:
-		// $object->id 				= $record['id'];
-		// $object->username 	= $record['username'];
-		// $object->password 	= $record['password'];
-		// $object->first_name = $record['first_name'];
-		// $object->last_name 	= $record['last_name'];
-		
-		// More dynamic, short-form approach:
-		foreach($record as $attribute=>$value){
-		  if($object->has_attribute($attribute)) {
-		    $object->$attribute = $value;
-		  }
-		}
-		return $object;
-	}
-	
-	private function has_attribute($attribute) {
-	  // We don't care about the value, we just want to know if the key exists
-	  // Will return true or false
-	  return array_key_exists($attribute, $this->attributes());
-	}
-
-	protected function attributes() { 
-		// return an array of attribute names and their values
-	  $attributes = array();
-	  foreach(self::$db_fields as $field) {
-	    if(property_exists($this, $field)) {
-	      $attributes[$field] = $this->$field;
-	    }
-	  }
-	  return $attributes;
-	}
-	
-	protected function sanitized_attributes() {
-	  global $database;
-	  $clean_attributes = array();
-	  // sanitize the values before submitting
-	  // Note: does not alter the actual value of each attribute
-	  foreach($this->attributes() as $key => $value){
-	    $clean_attributes[$key] = $database->escape_value($value);
-	  }
-	  return $clean_attributes;
-	}
-	
-	// replaced with a custom sa()
-	// public function save() {
-	//   // A new record won't have an id yet.
-	//   return isset($this->id) ? $this->update() : $this->create();
-	// }
-	
 	public function create() {
 		global $database;
 		// Don't forget your SQL syntax and good habits:
@@ -233,6 +208,8 @@ class Photograph extends DatabaseObject {
 		// after calling $user->delete().
 	}
 
+
+
 }
 
-?>
+ ?>

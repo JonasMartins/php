@@ -12,23 +12,23 @@ class MySQLDatabase {
 	private $magic_quotes_active;
 	private $real_escape_string_exists;
 	public $last_query;
-
+	// function_exists to method_exists
 
   function __construct() {
     $this->open_connection();
 		$this->magic_quotes_active = get_magic_quotes_gpc();
-		$this->real_escape_string_exists = function_exists( "mysqli_real_escape_string" );
+		$this->real_escape_string_exists = method_exists( "mysqli_real_escape_string" );
   }
 
 	public function open_connection() {
-		$this->connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS,DB_NAME);
+			$this->connection = mysqli_connect(DB_SERVER,DB_USER, DB_PASS,DB_NAME);
 		if (!$this->connection) {
-			die("Database connection failed: " . mysqli_error());
+			die("Database connection failed: " . mysqli_connect_errno());
 		} else {
 			// de msql para msqli mudaram a ordem dos parâmetros...
 			$db_select = mysqli_select_db($this->connection, DB_NAME);
 			if (!$db_select) {
-				die("Database selection failed: " . mysqli_error());
+				die("Database selection failed: " . mysqli_connect_errno());
 			}
 		}
 	}
@@ -39,9 +39,14 @@ class MySQLDatabase {
 		// mais uma vez essa versões me atrapalnahdo, 
 		// uso de um curso antigo resulta nisso...
 		$result = mysqli_query($this->connection, $sql);
-		$this->confirm_query($result);
+		
+		$this->confirm_query($sql);
+		
 		return $result;
 	}
+
+
+	// esta função me atrasou uma vida inteira....
 	// corrigir esta função, não está retornando a string limpa
 	// como deveria
 	public function escape_value( $value ) {
@@ -82,7 +87,7 @@ class MySQLDatabase {
   }
 
 
-	private function confirm_query($result) {
+	public function confirm_query($result) {
 		if (!$result) {
 			$output = "Database query failed: " . msqli_error(). "<br />";
 			$output .= "Last SQL query: " . $this->last_query;
@@ -96,7 +101,12 @@ class MySQLDatabase {
 			unset($this->connection);
 		}
 	}
+
+	public function get_conne(){
+		return $this->connection;
+	}	
 }
+
 // é possível ficar chamando esse objeto
 // sem precisar instanciar sempre em outra classe, 
 // ou em qualquer outra parte de projeto uma vez
