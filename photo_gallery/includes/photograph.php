@@ -150,6 +150,30 @@ class Photograph extends DatabaseObject {
 		}
 	}
 	/**
+	 * [destroy description]
+	 * @return [type] [description]
+	 *
+	 * Além de remover a tupla do banco, também devemos
+	 * remover a imagem do diretório que as armazena
+	 * logo esse método pode ser escrito apenas para
+	 * a classe photograph
+	 */
+	public function destroy() {
+		// First remove the database entry
+		if($this->delete()) {
+			// then remove the file
+		  // Note that even though the database entry is gone, this object 
+			// is still around (which lets us use $this->image_path()).
+			$target_path = SITE_ROOT.DS.'public'.DS.$this->image_path();
+			return unlink($target_path) ? true : false;
+		} else {
+			// database delete failed
+			return false;
+		}
+	}
+
+
+	/**
 	 * [image_path description]
 	 * @return [type] [description]
 	 *

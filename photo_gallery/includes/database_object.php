@@ -20,7 +20,7 @@ class DatabaseObject {
       // para o retorno do objeto ao invés de um
       // array
       global $database;
-      $result_array = static::find_by_sql("SELECT * FROM ".static::$table_name." WHERE id={$id} LIMIT 1");
+      $result_array = static::find_by_sql("SELECT * FROM ".static::$table_name." WHERE id=".$database->escape_value($id)." LIMIT 1");
       /*
        se o array es tiver vazio... retorna false
        se não faz um array shift no array resultante
