@@ -69,4 +69,6 @@ include_layout_template('admin_header.php');?>
 		    </tr>
 		  </table>
 		</form>
+		<br />
+		<a href="../index.php">Public Area</a>
   <?php include_layout_template('admin_footer.php');?>

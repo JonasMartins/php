@@ -12,5 +12,6 @@ if (!$session->is_logged_in()) { redirect_to("login.php"); }
 		<li><a href="logout.php">Logout</a></li>
 		<li><a href="photo_upload.php">Upload Photos</a></li>
 		<li><a href="list_photos.php">List Photos</a></li>
+		<li><a href="../index.php">Public Area</a></li>
 	</ul>
 <?php include_layout_template('admin_footer.php');?>		
