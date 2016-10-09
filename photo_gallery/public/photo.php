@@ -10,6 +10,33 @@
     $session->message("The photo could not be located.");
     redirect_to('index.php');
   }
+
+  // The form processing ....
+  
+  if(isset($_POST['submit'])) {
+    // trim: remove extra blank space
+    $author = trim($_POST['author']);
+    $body = trim($_POST['body']);
+  
+    $new_comment = Comment::make($photo->id, $author, $body);
+    if($new_comment && $new_comment->save()) {
+      // comment saved
+      // No message needed; seeing the comment is proof enough.
+
+      // Important!  You could just let the page render from here. 
+      // But then if the page is reloaded, the form will try 
+      // to resubmit the comment. So redirect instead:
+      redirect_to("photo.php?id={$photo->id}");
+    } else {
+      // Failed
+      $message = "There was an error that prevented the comment from being saved.";
+    }
+  } else {
+    $author = "";
+    $body = "";
+  }
+
+
 ?>
 <?php include_layout_template('header.php'); ?>
 
@@ -19,6 +46,28 @@
 <div style="margin-left: 20px;">
   <img src="<?php echo $photo->image_path(); ?>" />
   <p><?php echo $photo->caption; ?></p>
+</div>
+
+<!-- List comments -->
+<div id="comment-form">
+  <h3>New Comment</h3>
+  <?php echo output_message($message); ?>
+  <form action="photo.php?id=<?php echo $photo->id; ?>" method="post">
+    <table>
+      <tr>
+        <td>Your name:</td>
+        <td><input type="text" name="author" value="<?php echo $author; ?>" /></td>
+      </tr>
+      <tr>
+        <td>Your comment:</td>
+        <td><textarea name="body" cols="40" rows="8"><?php echo $body; ?></textarea></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" name="submit" value="Submit Comment" /></td>
+      </tr>
+    </table>
+  </form>
 </div>
 
 <?php include_layout_template('footer.php'); ?>

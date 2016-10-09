@@ -151,9 +151,12 @@ class DatabaseObject {
 /**
  *  DATABASE CRUD FUNCTIONS 
  */
-
+  public function save() {
+    // A new record won't have an id yet.
+    return isset($this->id) ? $this->update() : $this->create();
+  }
   // all go
- public function create() {
+  public function create() {
     global $database;
     // Don't forget your SQL syntax and good habits:
     // - INSERT INTO table (key, key) VALUES ('value', 'value')
