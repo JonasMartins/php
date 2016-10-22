@@ -6,6 +6,21 @@
   #8D0D19 - burgundy
 */
 
+/* reset margins ... good? 
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, ol, ul, li,
+blockquote, pre, form, label, legend, table, caption, tbody, tfoot, thead,
+tr, th, td, article, aside, canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, section, summary, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+*/
+
+
 html { height: 100%; width: 100%; }
 body { height: 100%; width: 100%; margin: 0; padding: 0; border: 0; background: #FFFFFF;
   /*font: 13px/15px Verdana,Arial,Helvetica,sans-serif; */}
@@ -13,20 +28,24 @@ img { border: none; }
 table, tr, td, tr { border-collapse: collapse; vertical-align: top; text-align: left;
   /*font: 13px/15px Verdana,Arial,Helvetica,sans-serif; */}
 a { color: #8D0D19;}
-
-#header { 
-	height: 100px; 
-	text-align: right; 
-	background: #1A446C;
-	color: #D4E6F4;
-
-}
-#header h1 { padding: 1em; }
+#header { height: 100px; text-align: left; background: #1A446C; color: #D4E6F4; }
+#header h1 { padding: 1em; margin: 0;}
 
 /* Note: IE 5 & 6 won't understand min-height */
-#main { min-height: 600px; width: 100%; background: #EEE4B9; padding: 2em;}
+#main { min-height: 570px; width: 100%; background: #EEE4B9; padding: 2em;}
 
-#footer { height: 50px; padding: 1em; text-align: center; 
+#footer { height: 2em; padding: 1em; text-align: center; 
   background: #1A446C;  color: #D4E6F4; }
 
 table.bordered tr th, table.bordered tr td { border: 1px solid #000000; }
+
+/* My Own site cusomization*/
+
+/* classe moldura mas par atipos imagem */
+.moldura img {
+  border: 3px solid black;
+}
+
+
+
+

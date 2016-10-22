@@ -39,11 +39,19 @@
 
 ?>
 <?php include_layout_template('header.php'); ?>
-
+<!-- 
+  Before:
 <a href="index.php">&laquo; Back</a><br />
 <br />
+-->
+<form action="./index.php">
+    <input type="submit" class="btn btn-primary btn-md sharp" value="&laquo; Back" />
+</form>
 
-<div style="margin-left: 20px;">
+<!-- Interessante notar que adicionar a classe
+seletora moldura, funciona apenas na tag div, 
+não em imagem -->
+<div class="moldura" style="margin-left: 20px;">
   <img src="<?php echo $photo->image_path(); ?>" />
   <p><?php echo $photo->caption; ?></p>
 </div>
