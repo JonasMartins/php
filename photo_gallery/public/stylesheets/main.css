@@ -1,4 +1,5 @@
 /* Site Colors:
+  #FF0080 - magenta variation -official color
   #1A446C - blue grey
   #689DC1 - light blue
   #D4E6F4 - very light blue
@@ -28,14 +29,14 @@ img { border: none; }
 table, tr, td, tr { border-collapse: collapse; vertical-align: top; text-align: left;
   /*font: 13px/15px Verdana,Arial,Helvetica,sans-serif; */}
 a { color: #8D0D19;}
-#header { height: 100px; text-align: left; background: #1A446C; color: #D4E6F4; }
+#header { height: 100px; text-align: left; background: #FF0080; color: #D4E6F4; }
 #header h1 { padding: 1em; margin: 0;}
 
 /* Note: IE 5 & 6 won't understand min-height */
 #main { min-height: 570px; width: 100%; background: #EEE4B9; padding: 2em;}
 
 #footer { height: 2em; padding: 1em; text-align: center; 
-  background: #1A446C;  color: #D4E6F4; }
+  background: #FF0080;  color: #D4E6F4; }
 
 table.bordered tr th, table.bordered tr td { border: 1px solid #000000; }
 
@@ -43,7 +44,10 @@ table.bordered tr th, table.bordered tr td { border: 1px solid #000000; }
 
 /* classe moldura mas par atipos imagem */
 .moldura img {
-  border: 3px solid black;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #1A446C;
+  padding: 1px;
 }
 
 
