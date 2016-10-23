@@ -50,6 +50,11 @@ table.bordered tr th, table.bordered tr td { border: 1px solid #000000; }
   padding: 1px;
 }
 
-
-
+/* cor roza-claro padrão para ser ultilizada em selectors tr
+da página inicial */
+th#light_tan_th{
+  background-color: #EEE4B9; 
+  padding: .5em;
+  border: 1px solid black; 
+}
 

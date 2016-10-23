@@ -37,7 +37,7 @@
 */
 .btn.sharp {
   border-radius:0;
-  background-color: #1A446C;
+  background-color: #FF0080;
   color: #D4E6F4;
   border: none;
   font-family: inherit;
@@ -46,7 +46,7 @@
 
 .btn.round {
 	border-radius: 24px;
-	background-color: #1A446C;
+	background-color: #FF0080;
   color: #D4E6F4;
   border: none;
   font-family: inherit;
