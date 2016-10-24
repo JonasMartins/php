@@ -9,7 +9,6 @@
 
     <link href="stylesheets/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
 
-
   </head>
   <body>
     <div id="header">

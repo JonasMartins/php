@@ -3,7 +3,7 @@
 	// Find all photos
 	$photos = Photograph::find_all();
 ?>
-<?php include_layout_template('header.php'); ?>
+<?php include_layout_template('header_index.php'); ?>
 <!-- 
 	Forma antiga
 <a class="btn btn-primary" href="./admin/index.php" role="button">Admin Login</a>
@@ -16,29 +16,68 @@ para evitar repetição de código
 <div class="container">
   <div class="row">	
   	<section >
-			<h2 >Create an Account</h2>
+			<h2 style="color:black;">Create an Account</h2>
 			<div class="form-group">
 			  <label for="usr">User Name:</label>
-			  <input style="width: 300px;" type="text" class="form-control" id="usr">
+			  <input style="width: 300px;" type="text"
+			  placeholder="Enter UserName" class="form-control" id="usr">
+			  <small class="form-text text-muted">Choose an unique Username.</small>
 			</div>
 			<div class="form-group">
 			  <label for="usr">First Name:</label>
-			  <input style="width: 300px;" type="text" class="form-control" id="usr">
+			  <input style="width: 300px;" type="text" 
+			   placeholder=" Your First Name" class="form-control" id="usr">
 			</div>
 			<div class="form-group">
 			  <label for="usr">Last Name:</label>
-			  <input style="width: 300px;" type="text" class="form-control" id="usr">
+			  <input style="width: 300px;" type="text" 
+			   placeholder=" Your Last Name" class="form-control" id="usr">
 			</div>
 			<div class="form-group">
 			  <label for="pwd">Password:</label>
-			  <input style="width: 300px;" type="password" class="form-control" id="pwd">
-			</div>
-			<form style="float: right" action="./admin/index.php">
-	    	<input type="submit" class="btn btn-primary btn-md sharp" value="Admin Login" />
-			</form>
-			<form style="float: left" action="./admin/index.php">
-    		<input style="width: 300px;" type="submit" class="btn btn-primary btn-md sharp" value=" Create " />
-			</form>
+			  <input style="width: 300px;" type="password" 
+			   placeholder=" Password" class="form-control" id="pwd">
+			</div>	
+
+			<fieldset class="form-group">
+		    <legend>Gender</legend>
+		    <div class="form-check">
+		      <label class="form-check-label">
+		        <input type="radio" class="form-check-input" name="optionsRadios"
+		         id="optionsRadios1" value="option1" checked>
+		        Masculine
+		      </label>
+		    </div>
+		    <div class="form-check">
+		    <label class="form-check-label">
+		        <input type="radio" class="form-check-input" name="optionsRadios"
+		         id="optionsRadios2" value="option2">
+		        Feminine
+		      </label>
+		    </div>
+		    <div class="form-check disabled">
+		    <label class="form-check-label">
+		        <input type="radio" class="form-check-input" name="optionsRadios"
+		         id="optionsRadios3" value="option3" disabled>
+		        Option three is disabled
+		      </label>
+		    </div>
+		  </fieldset>
+		  <div class="container">
+		  	<div class="row">
+					<form style="float: left" action="./admin/index.php">
+		    		<input style="width: 300px; background-color: lightgreen; color: black;"
+		    		 type="submit" class="btn btn-primary btn-md sharp" value=" Create " />
+					</form>
+				</div>
+				<div class="row">
+					<form action="./admin/index.php">
+		        <input style="width: 300px;
+		        background-color: darkblue; color: white;" type="submit" class="btn btn-primary btn-md sharp" value="Admin Login" />
+		      </form>      
+				</div>    
+	     		
+	     </div>
 		</section>
 	</div> 
 </div>
