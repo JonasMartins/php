@@ -18,20 +18,20 @@ para evitar repetição de código
   	<section >
 			<h2 style="color:black;">Create an Account</h2>
 			<div class="form-group">
-			  <label for="usr">User Name:</label>
+			  <label for="username">User Name:</label>
 			  <input style="width: 300px;" type="text"
-			  placeholder="Enter UserName" class="form-control" id="usr">
+			  placeholder="Enter UserName" class="form-control" id="username">
 			  <small class="form-text text-muted">Choose an unique Username.</small>
 			</div>
 			<div class="form-group">
-			  <label for="usr">First Name:</label>
+			  <label for="first_name">First Name:</label>
 			  <input style="width: 300px;" type="text" 
-			   placeholder=" Your First Name" class="form-control" id="usr">
+			   placeholder=" Your First Name" class="form-control" id="first_name">
 			</div>
 			<div class="form-group">
-			  <label for="usr">Last Name:</label>
+			  <label for="last_name">Last Name:</label>
 			  <input style="width: 300px;" type="text" 
-			   placeholder=" Your Last Name" class="form-control" id="usr">
+			   placeholder=" Your Last Name" class="form-control" id="last_name">
 			</div>
 			<div class="form-group">
 			  <label for="pwd">Password:</label>

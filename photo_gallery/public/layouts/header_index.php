@@ -16,6 +16,14 @@
       <div class="row">
         <h1 style="float:left; padding: 1em;">Photo Gallery</h1>
       
+         <form class="form-inline" style="float:right;" action="../public/admin/index.php">
+          <div class="form-group">
+            <input class="btn btn-default btn-md sharp pull-right" type="submit" value="Sign In">
+          </div>
+        </form>
+
+
+
         <form class="form-inline" style="float:right;">
           <div class="form-group">
             <!-- class="sr-only"  caso queira
@@ -27,15 +35,23 @@
             <label for="exampleInputPassword1">Password</label>
             <input style="width: 150px;" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
           </div>
+        </form>
+
+
+
+        </div>
         
-          <form action="./admin/index.php">
+        
+
+        <!--
+        <div class="row">
+          <form action="../public/admin/index.php">
             <div class="form-group">
-            <input type="submit" class="btn btn-primary btn-md sharp" value="Sign in" />
+            <input type="submit" class="btn/ btn-primary btn-md sharp" value="Sign in" />
             </div>
           </form>     
-
-          </form>
         </div>
+        -->
       </div>
    </div>    
   <div id="main">
