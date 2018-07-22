@@ -1,12 +1,12 @@
 <template>
-  <div class="small-box bg-aqua">
+  <div class="small-box" v-bind:style="defineColor">
     <div class="inner">
-      <h3>150</h3>
+      <h3>{{amount}}</h3>
 
-      <p>New Orders</p>
+      <p>{{title}}</p>
     </div>
     <div class="icon">
-      <i class="fa fa-shopping-cart"></i>
+      <i v-bind:class="icon"></i>
     </div>
     <a href="#" class="small-box-footer">
       More info <i class="fa fa-arrow-circle-right"></i>
@@ -17,7 +17,12 @@
 
 <script>
   export default {
-   
+    props:['amount','title','url','color','icon'],
+    computed:{
+      defineColor:function(){
+        return "background-color: " +this.color+" !important";
+      }
+    }
   }
 </script>
 <style media="screen">
@@ -31,7 +36,13 @@
     display: block;
     margin-bottom: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    color: #fff;
   }
+  .small-box:hover {
+    text-decoration: none;
+    color: #f9f9f9;
+  }
+
   .small-box > .inner {
     padding: 10px;
   }
@@ -61,7 +72,12 @@
     z-index: 0;
     font-size: 90px;
     color: rgba(0,0,0,0.15);
+
   }
+  .small-box:hover .icon{
+    font-size:95px;
+  }
+
   .small-box > .small-box-footer {
     position: relative;
     text-align: center;
@@ -76,5 +92,14 @@
   a {
     color: #3c8dbc;
   } 
+  .small-box>.small-box-footer:hover {
+    color: #fff;
+    background: rgba(0,0,0,0.15);
+  }
+  a:hover, a:active, a:focus {
+    outline: none;
+    text-decoration: none;
+    color: #72afd2;
+  }
 
 </style>
