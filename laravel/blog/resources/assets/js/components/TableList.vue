@@ -11,20 +11,25 @@
       </thead>
 
       <tbody>
-        <tr v-for="item in items">
+        <tr v-for="(item,index) in items">
           <td v-for="i in item">{{i}}</td>
-          <td v-if="show || edit || destroy">
-            <form v-if="destroy && token" action="index.html" method="post">
+          <td v-bind:id="index" v-if="show || edit || destroy">
+            <form v-if="destroy && token" v-bind:action="deletar" method="post">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" v-bind:value="token">
-
               <a v-if="show" v-bind:href="show">Show</a> |
               <a v-if="edit" v-bind:href="edit">Edit</a> |
-              <a v-if="destroy" v-bind:href="destroy">Delete</a>
+              <a href="#" v-on:click="runForm(index)"></a>
             </form>
-            <a v-if="show" v-bind:href="show">Show</a> |
-            <a v-if="edit" v-bind:href="edit">Edit</a> |
-            <a v-if="destroy" v-bind:href="destroy">Delete</a>
+            <span v-if="token">
+              <a v-if="show" v-bind:href="show">Show</a> |
+              <a v-if="edit" v-bind:href="edit">Edit</a> |
+              <a v-if="destroy" v-bind:href="destroy">Delete</a>  
+            </span>
+            <span v-if="token && !destroy">
+              <a v-if="show" v-bind:href="show">Show</a> |
+              <a v-if="edit" v-bind:href="edit">Edit</a> |
+            </span>
           </td>
         </tr>        
       </tbody>
@@ -34,6 +39,12 @@
 
 <script>
   export default {
-   props:['titles','items','create','show','edit','destroy','token']
+   props:['titles','items','create','show','edit','destroy','token'],
+   methods:{
+    runForm: function(index){
+      document.getElementById(index).submit();
+    }
+   }
+    
   }
 </script>
