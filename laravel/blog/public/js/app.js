@@ -48377,9 +48377,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['titles', 'items']
+  props: ['titles', 'items', 'create', 'show', 'edit', 'destroy', 'token']
 });
 
 /***/ }),
@@ -48391,7 +48400,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("a", { attrs: { href: "#" } }, [_vm._v("Create")]),
+    _vm.create
+      ? _c("a", { attrs: { href: _vm.create } }, [_vm._v("New")])
+      : _vm._e(),
     _vm._v(" "),
     _c("table", { staticClass: "table table-striped table-hover" }, [
       _c("thead", [
@@ -48402,7 +48413,9 @@ var render = function() {
               return _c("th", [_vm._v(_vm._s(title))])
             }),
             _vm._v(" "),
-            _c("th", [_vm._v("!")])
+            _vm.show || _vm.edit || _vm.destroy
+              ? _c("th", [_vm._v("@@@")])
+              : _vm._e()
           ],
           2
         )
@@ -48418,7 +48431,61 @@ var render = function() {
                 return _c("td", [_vm._v(_vm._s(i))])
               }),
               _vm._v(" "),
-              _vm._m(0, true)
+              _vm.show || _vm.edit || _vm.destroy
+                ? _c("td", [
+                    _vm.destroy && _vm.token
+                      ? _c("form", { attrs: { action: "" } }, [
+                          _c("input", {
+                            attrs: {
+                              type: "hidden",
+                              name: "_method",
+                              value: "DELETE"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("input", {
+                            attrs: {
+                              type: "hidden",
+                              name: "_token",
+                              value: "token"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.show
+                            ? _c("a", { attrs: { href: _vm.show } }, [
+                                _vm._v("Show")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" |\n            "),
+                          _vm.edit
+                            ? _c("a", { attrs: { href: _vm.edit } }, [
+                                _vm._v("Edit")
+                              ])
+                            : _vm._e(),
+                          _vm._v(" |\n            "),
+                          _vm.destroy
+                            ? _c("a", { attrs: { href: _vm.destroy } }, [
+                                _vm._v("Delete")
+                              ])
+                            : _vm._e()
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.show
+                      ? _c("a", { attrs: { href: _vm.show } }, [_vm._v("Show")])
+                      : _vm._e(),
+                    _vm._v(" |\n          "),
+                    _vm.edit
+                      ? _c("a", { attrs: { href: _vm.edit } }, [_vm._v("Edit")])
+                      : _vm._e(),
+                    _vm._v(" |\n          "),
+                    _vm.destroy
+                      ? _c("a", { attrs: { href: _vm.destroy } }, [
+                          _vm._v("Delete")
+                        ])
+                      : _vm._e()
+                  ])
+                : _vm._e()
             ],
             2
           )
@@ -48427,18 +48494,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Edit")]),
-      _vm._v(" |\n          "),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Delete")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
