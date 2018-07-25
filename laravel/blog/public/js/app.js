@@ -48397,18 +48397,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titles', 'items', 'create', 'show', 'edit', 'destroy', 'token', 'order', 'colorder'],
   data: function data() {
     return {
-      search: ''
+      search: '',
+      orderAux: this.order || "asc",
+      colorderAux: this.colorder || 0
     };
   },
   methods: {
     runForm: function runForm(index) {
       document.getElementById(index).submit();
+    },
+    orderColumn: function orderColumn(col) {
+      this.colorderAux = col;
+      if (this.orderAux.toLowerCase() == 'asc') this.orderAux = 'desc';else this.orderAux = 'asc';
     }
   },
   computed: {
@@ -48416,8 +48421,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     list: function list() {
       var _this = this;
 
-      var order = this.order || 'asc';
-      var colorder = this.colorder || 0;
+      var order = this.orderAux || 'asc';
+      var colorder = this.colorderAux || 0;
 
       order = order.toLowerCase();
       colorder = parseInt(colorder);
@@ -48439,9 +48444,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return this.items.filter(function (res) {
         for (var k = 0; k < res.length; k++) {
           // concatenate with "" to convert a int into a string for sure
-          if ((res[k] + "").toLowerCase().indexOf(_this.search.toLowerCase()) >= 0) {
-            return true;
-          }
+          if ((res[k] + "").toLowerCase().indexOf(_this.search.toLowerCase()) >= 0) return true;
         }
         return false;
       });
@@ -48494,8 +48497,19 @@ var render = function() {
         _c(
           "tr",
           [
-            _vm._l(_vm.titles, function(title) {
-              return _c("th", [_vm._v(_vm._s(title))])
+            _vm._l(_vm.titles, function(title, index) {
+              return _c(
+                "th",
+                {
+                  staticStyle: { cursor: "pointer" },
+                  on: {
+                    click: function($event) {
+                      _vm.orderColumn(index)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(title))]
+              )
             }),
             _vm._v(" "),
             _vm.show || _vm.edit || _vm.destroy

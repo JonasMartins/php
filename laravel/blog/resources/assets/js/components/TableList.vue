@@ -11,8 +11,7 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-      
-          <th v-for="title in titles">{{title}}</th>
+          <th style="cursor:pointer" v-on:click="orderColumn(index)" v-for="(title,index) in titles">{{title}}</th>
           <th v-if="show || edit || destroy">@@@</th>
         </tr>
       </thead>
@@ -47,22 +46,31 @@
 <script>
   export default {
    props:['titles','items','create','show','edit','destroy','token','order','colorder'],
-   data: function(){
+   data: function(){ 
       return {
-        search:''
+        search:'',
+        orderAux: this.order || "asc",
+        colorderAux: this.colorder || 0
       }
    },
    methods:{
     runForm: function(index){
       document.getElementById(index).submit();
+      },
+      orderColumn: function(col){
+        this.colorderAux = col;
+        if(this.orderAux.toLowerCase()=='asc')
+          this.orderAux = 'desc';
+        else
+          this.orderAux = 'asc';
       }
     },
     computed:{
 
       list:function(){
 
-        let order = this.order || 'asc';
-        let colorder = this.colorder || 0;
+        let order = this.orderAux;
+        let colorder = this.colorderAux;
 
         order = order.toLowerCase();
         colorder = parseInt(colorder);
@@ -85,14 +93,11 @@
           });  
         }
 
-        
-
         return this.items.filter(res => {
           for(let k = 0;k<res.length;k++){
             // concatenate with "" to convert a int into a string for sure
-            if((res[k]+"").toLowerCase().indexOf(this.search.toLowerCase()) >= 0){
+            if((res[k]+"").toLowerCase().indexOf(this.search.toLowerCase()) >= 0)
               return true;
-            }  
           }
           return false;
         });
