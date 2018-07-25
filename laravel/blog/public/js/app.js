@@ -48400,7 +48400,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['titles', 'items', 'create', 'show', 'edit', 'destroy', 'token'],
+  props: ['titles', 'items', 'create', 'show', 'edit', 'destroy', 'token', 'order', 'colorder'],
   data: function data() {
     return {
       search: ''
@@ -48412,8 +48412,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   computed: {
+
     list: function list() {
       var _this = this;
+
+      var order = this.order || 'asc';
+      var colorder = this.colorder || 0;
+
+      order = order.toLowerCase();
+      colorder = parseInt(colorder);
+
+      if (order == 'asc') {
+        this.items.sort(function (a, b) {
+          if (a[colorder] > b[colorder]) return 1;
+          if (a[colorder] < b[colorder]) return -1;
+          return 0;
+        });
+      } else {
+        this.items.sort(function (a, b) {
+          if (a[colorder] < b[colorder]) return 1;
+          if (a[colorder] > b[colorder]) return -1;
+          return 0;
+        });
+      }
 
       return this.items.filter(function (res) {
         for (var k = 0; k < res.length; k++) {
@@ -48439,7 +48460,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "inline" }, [
-      _vm.criar
+      _vm.create
         ? _c("a", { attrs: { href: _vm.create } }, [_vm._v("New")])
         : _vm._e(),
       _vm._v(" "),
@@ -48503,7 +48524,7 @@ var render = function() {
                           {
                             attrs: {
                               id: index,
-                              action: _vm.deletar,
+                              action: _vm.destroy,
                               method: "post"
                             }
                           },
