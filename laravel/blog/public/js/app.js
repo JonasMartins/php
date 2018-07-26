@@ -14286,7 +14286,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(65);
+module.exports = __webpack_require__(68);
 
 
 /***/ }),
@@ -14316,6 +14316,7 @@ Vue.component('box', __webpack_require__(48));
 Vue.component('page', __webpack_require__(54));
 Vue.component('panel', __webpack_require__(57));
 Vue.component('table-list', __webpack_require__(62));
+Vue.component('breadcrumb', __webpack_require__(65));
 
 var app = new Vue({
   el: '#app'
@@ -48421,8 +48422,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     list: function list() {
       var _this = this;
 
-      var order = this.orderAux || 'asc';
-      var colorder = this.colorderAux || 0;
+      var order = this.orderAux;
+      var colorder = this.colorderAux;
 
       order = order.toLowerCase();
       colorder = parseInt(colorder);
@@ -48644,6 +48645,128 @@ if (false) {
 
 /***/ }),
 /* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(66)
+/* template */
+var __vue_template__ = __webpack_require__(67)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Breadcrumb.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2342780c", Component.options)
+  } else {
+    hotAPI.reload("data-v-2342780c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['breadcrumbs'],
+  computed: {
+    setActive: function setActive() {
+      if (this.url) return "active";else return "test";
+    }
+  }
+
+});
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("nav", { attrs: { "aria-label": "breadcrumb" } }, [
+      _c(
+        "ol",
+        { staticClass: "breadcrumb" },
+        _vm._l(_vm.breadcrumbs, function(item) {
+          return _c(
+            "li",
+            { staticClass: "breadcrumb-item ", class: _vm.setActive },
+            [
+              item.url
+                ? _c("a", { attrs: { href: item.url } }, [
+                    _vm._v("\n         " + _vm._s(item.title) + "\n       ")
+                  ])
+                : _vm._e(),
+              !item.url ? _c("span", [_vm._v(_vm._s(item.title))]) : _vm._e()
+            ]
+          )
+        })
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2342780c", module.exports)
+  }
+}
+
+/***/ }),
+/* 68 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -1,13 +1,16 @@
 <template>
  <div>
-
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Library</li>
+      <li v-for="item in breadcrumbs" class="breadcrumb-item " v-bind:class="setActive">
+        <a 
+          v-if="item.url" 
+          v-bind:href="item.url">
+          {{item.title}}
+        </a><span v-if="!item.url">{{item.title}}</span>
+      </li>
     </ol>
-  </nav>  
- 
+  </nav> 
  </div>
  
 </template>
@@ -15,8 +18,13 @@
 <script>
   export default {
     props:['breadcrumbs'],
-    mounted:function(){
-      console.log(this.breadcrumbs);
+    computed:{
+      setActive: function(){
+        if(this.url)
+          return "active";
+        else
+          return "test" 
+      }
     }
 
   }

@@ -18,7 +18,7 @@ class ArticlesController extends Controller
             ['title'=>'Home','url'=>route('home')],
             ['title'=>'Shopping','url'=>'']
         ]);
-        return view('admin.articles.index',compact(breadcrumbs));
+        return view('admin.articles.index',compact('breadcrumbs'));
     }
 
     /**
