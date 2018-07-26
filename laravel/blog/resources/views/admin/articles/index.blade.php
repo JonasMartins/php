@@ -6,9 +6,11 @@
     <breadcrumb v-bind:breadcrumbs="{{$breadcrumbs}}"></breadcrumb>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       Launch demo modal
-    </button>
+    </button> -->
+
+    <modal-link type="button" name="exampleModal" title="Create"></modal-link>
 
     <table-list 
     v-bind:titles="['#','Title','Description']"

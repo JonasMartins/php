@@ -48466,10 +48466,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "inline" }, [
-      _vm.create
-        ? _c("a", { attrs: { href: _vm.create } }, [_vm._v("New")])
-        : _vm._e(),
-      _vm._v(" "),
       _c("div", { staticClass: "form-group pull-right" }, [
         _c("input", {
           directives: [
@@ -48943,8 +48939,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['type', 'name', 'title', 'css']
+});
 
 /***/ }),
 /* 73 */
@@ -48954,7 +48962,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", {}, [
+    _vm.type == "button"
+      ? _c(
+          "button",
+          {
+            class: _vm.css || "btn btn-primary",
+            attrs: {
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#" + _vm.name
+            }
+          },
+          [_vm._v("\n    " + _vm._s(_vm.title) + "\n  ")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.type == "link"
+      ? _c(
+          "a",
+          {
+            attrs: {
+              href: "#",
+              "data-toggle": "modal",
+              "data-target": "#" + _vm.name
+            }
+          },
+          [_vm._v("\n  \t" + _vm._s(_vm.title) + "\n  ")]
+        )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
