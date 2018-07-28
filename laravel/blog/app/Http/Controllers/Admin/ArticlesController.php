@@ -16,7 +16,7 @@ class ArticlesController extends Controller
     {
         $breadcrumbs = json_encode([
             ['title'=>'Home','url'=>route('home')],
-            ['title'=>'Shopping','url'=>'']
+            ['title'=>'Articles','url'=>'']
         ]);
         return view('admin.articles.index',compact('breadcrumbs'));
     }

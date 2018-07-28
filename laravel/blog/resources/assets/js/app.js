@@ -17,10 +17,12 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('top', require('./components/Top.vue'));
+Vue.component('top', require('./components/Top.vue'));
 Vue.component('box', require('./components/Box.vue'));
 Vue.component('page', require('./components/Page.vue'));
 Vue.component('panel', require('./components/Panel.vue'));
 Vue.component('table-list', require('./components/TableList.vue'));
+Vue.component('form-input', require('./components/FormInput.vue'));
 Vue.component('breadcrumb', require('./components/Breadcrumb.vue'));
 Vue.component('modal', require('./components/modal/Modal.vue'));
 Vue.component('modal-link', require('./components/modal/ModalLink.vue'));

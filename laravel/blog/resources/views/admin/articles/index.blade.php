@@ -32,7 +32,18 @@
 </page>
 <modal name="exampleModal">
   <panel title="Articles">
-    <form>
+    <form-input css="" method="post" enctype="" token="">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input id="description" type="text" name="description" class="form-control" placeholder="Description">
+      </div>
+      <button class="btn btn-info">Add</button>
+    </form-input>
+    <!-- <form>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -47,7 +58,7 @@
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </form> -->
   </panel>
 </modal>
 
