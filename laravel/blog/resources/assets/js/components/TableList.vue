@@ -77,30 +77,32 @@
 
         if(order=='asc'){
           this.items.sort(function(a,b){
-          if(a[colorder]>b[colorder])
+          if(Object.values(a)[colorder] > Object.values(b)[colorder])
             return 1;
-          if(a[colorder]<b[colorder])
+          if(Object.values(a)[colorder] < Object.values(b)[colorder])
             return -1;
           return 0;
           });
         } else {
           this.items.sort(function(a,b){
-          if(a[colorder]<b[colorder])
+          if(Object.values(a)[colorder] < Object.values(b)[colorder])
             return 1;
-          if(a[colorder]>b[colorder])
+          if(Object.values(a)[colorder] > Object.values(b)[colorder])
             return -1;
           return 0;
           });  
         }
 
-        return this.items.filter(res => {
+        if(this.search){
+          return this.items.filter(res => {
           for(let k = 0;k<res.length;k++){
             // concatenate with "" to convert a int into a string for sure
             if((res[k]+"").toLowerCase().indexOf(this.search.toLowerCase()) >= 0)
               return true;
-          }
-          return false;
-        });
+            }
+            return false;
+          });
+        }
         return this.items;
       }
     }

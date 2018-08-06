@@ -18,7 +18,13 @@ class ArticlesController extends Controller
             ['title'=>'Home','url'=>route('home')],
             ['title'=>'Articles','url'=>'']
         ]);
-        return view('admin.articles.index',compact('breadcrumbs'));
+
+        $articleList = [
+            ['id'=>1,'title'=>'php','description'=>'test php description'],
+            ['id'=>2,'title'=>'vue','description'=>'test vue description']
+        ]
+
+        return view('admin.articles.index',compact('breadcrumbs','articleList'));
     }
 
     /**
