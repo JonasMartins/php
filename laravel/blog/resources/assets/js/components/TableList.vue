@@ -1,7 +1,8 @@
 <template>
   <div><!-- Must have only one div  -->
     <div class="inline">
-      <!-- <a v-if="create" v-bind:href="create">New</a>  -->     
+      <a v-if="create && !modal" v-bind:href="create">New</a>  
+      <modal-link v-if="create && modal" type="button" name="add" title="Create"></modal-link>
       <div class="form-group pull-right">
         <input type="search" class="form-control" placeholder="Search" v-model="search">
 
@@ -24,17 +25,20 @@
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" v-bind:value="token">
               <a v-if="show" v-bind:href="show">Show | </a>
-              <a v-if="edit" v-bind:href="edit">Edit | </a>
+              <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
+              <modal-link v-if="edit && modal" type="button" name="edit" title="Edit |"></modal-link>
               <a href="#" v-on:click="runForm(index)"> Delete</a>
             </form>
             <span v-if="!token">
               <a v-if="show" v-bind:href="show">Show | </a>
-              <a v-if="edit" v-bind:href="edit">Edit | </a>
+              <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
+              <modal-link v-if="edit && modal" type="button" name="edit" title="Edit"></modal-link>
               <a v-if="destroy" v-bind:href="destroy"> Delete</a>  
             </span>
             <span v-if="token && !destroy">
               <a v-if="show" v-bind:href="show">Show</a> |
-              <a v-if="edit" v-bind:href="edit">Edit</a> |
+              <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
+              <modal-link v-if="edit && modal" type="button" name="edit" title="Edit"></modal-link>
             </span>
           </td>
         </tr>        
@@ -45,7 +49,7 @@
 
 <script>
   export default {
-   props:['titles','items','create','show','edit','destroy','token','order','colorder'],
+   props:['titles','items','create','show','edit','destroy','token','order','colorder','modal'],
    data: function(){ 
       return {
         search:'',

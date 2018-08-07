@@ -10,7 +10,6 @@
       Launch demo modal
     </button> -->
 
-    <modal-link type="button" name="exampleModal" title="Create"></modal-link>
 
     <table-list 
     v-bind:titles="['#','Title','Description']"
@@ -21,12 +20,13 @@
     order="asc"
     colorder="2"
     destroy="#destroy"
-    token="#0192091082108210921">
+    token="#0192091082108210921"
+    modal="yes">
     
     </table-list>
   </panel>
 </page>
-<modal name="exampleModal">
+<modal name="add">
   <panel title="Articles">
     <form-input css="" method="post" enctype="" token="">
       <div class="form-group">
@@ -55,6 +55,39 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form> -->
+  </panel>
+</modal>
+
+<modal name="edit">
+  <panel title="Articles">
+    <form-input css="" method="post" enctype="" token="">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input id="description" type="text" name="description" class="form-control" placeholder="Description">
+      </div>
+      <button class="btn btn-info">Add</button>
+    </form-input>
+  </panel>
+</modal>
+
+
+<modal name="details">
+  <panel title="Articles">
+    <form-input css="" method="post" enctype="" token="">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input id="description" type="text" name="description" class="form-control" placeholder="Description">
+      </div>
+      <button class="btn btn-info">Add</button>
+    </form-input>
   </panel>
 </modal>
 

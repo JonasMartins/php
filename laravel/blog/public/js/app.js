@@ -48402,9 +48402,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['titles', 'items', 'create', 'show', 'edit', 'destroy', 'token', 'order', 'colorder'],
+  props: ['titles', 'items', 'create', 'show', 'edit', 'destroy', 'token', 'order', 'colorder', 'modal'],
   data: function data() {
     return {
       search: '',
@@ -48434,25 +48438,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       if (order == 'asc') {
         this.items.sort(function (a, b) {
-          if (a[colorder] > b[colorder]) return 1;
-          if (a[colorder] < b[colorder]) return -1;
+          if (Object.values(a)[colorder] > Object.values(b)[colorder]) return 1;
+          if (Object.values(a)[colorder] < Object.values(b)[colorder]) return -1;
           return 0;
         });
       } else {
         this.items.sort(function (a, b) {
-          if (a[colorder] < b[colorder]) return 1;
-          if (a[colorder] > b[colorder]) return -1;
+          if (Object.values(a)[colorder] < Object.values(b)[colorder]) return 1;
+          if (Object.values(a)[colorder] > Object.values(b)[colorder]) return -1;
           return 0;
         });
       }
 
-      return this.items.filter(function (res) {
-        for (var k = 0; k < res.length; k++) {
-          // concatenate with "" to convert a int into a string for sure
-          if ((res[k] + "").toLowerCase().indexOf(_this.search.toLowerCase()) >= 0) return true;
-        }
-        return false;
-      });
+      if (this.search) {
+        return this.items.filter(function (res) {
+          for (var k = 0; k < res.length; k++) {
+            // concatenate with "" to convert a int into a string for sure
+            if ((res[k] + "").toLowerCase().indexOf(_this.search.toLowerCase()) >= 0) return true;
+          }
+          return false;
+        });
+      }
       return this.items;
     }
   }
@@ -48467,31 +48473,46 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "inline" }, [
-      _c("div", { staticClass: "form-group pull-right" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.search,
-              expression: "search"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "search", placeholder: "Search" },
-          domProps: { value: _vm.search },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+    _c(
+      "div",
+      { staticClass: "inline" },
+      [
+        _vm.create && !_vm.modal
+          ? _c("a", { attrs: { href: _vm.create } }, [_vm._v("New")])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.create && _vm.modal
+          ? _c("modal-link", {
+              attrs: { type: "button", name: "add", title: "Create" }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group pull-right" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.search,
+                expression: "search"
               }
-              _vm.search = $event.target.value
+            ],
+            staticClass: "form-control",
+            attrs: { type: "search", placeholder: "Search" },
+            domProps: { value: _vm.search },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.search = $event.target.value
+              }
             }
-          }
-        })
-      ])
-    ]),
+          })
+        ])
+      ],
+      1
+    ),
     _vm._v(" "),
     _c("table", { staticClass: "table table-striped table-hover" }, [
       _c("thead", [
@@ -48563,10 +48584,20 @@ var render = function() {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            _vm.edit
+                            _vm.edit && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.edit } }, [
                                   _vm._v("Edit | ")
                                 ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.edit && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    type: "button",
+                                    name: "edit",
+                                    title: "Edit |"
+                                  }
+                                })
                               : _vm._e(),
                             _vm._v(" "),
                             _c(
@@ -48581,47 +48612,75 @@ var render = function() {
                               },
                               [_vm._v(" Delete")]
                             )
-                          ]
+                          ],
+                          1
                         )
                       : _vm._e(),
                     _vm._v(" "),
                     !_vm.token
-                      ? _c("span", [
-                          _vm.show
-                            ? _c("a", { attrs: { href: _vm.show } }, [
-                                _vm._v("Show | ")
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.edit
-                            ? _c("a", { attrs: { href: _vm.edit } }, [
-                                _vm._v("Edit | ")
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.destroy
-                            ? _c("a", { attrs: { href: _vm.destroy } }, [
-                                _vm._v(" Delete")
-                              ])
-                            : _vm._e()
-                        ])
+                      ? _c(
+                          "span",
+                          [
+                            _vm.show
+                              ? _c("a", { attrs: { href: _vm.show } }, [
+                                  _vm._v("Show | ")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.edit && !_vm.modal
+                              ? _c("a", { attrs: { href: _vm.edit } }, [
+                                  _vm._v("Edit | ")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.edit && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    type: "button",
+                                    name: "edit",
+                                    title: "Edit |"
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.destroy
+                              ? _c("a", { attrs: { href: _vm.destroy } }, [
+                                  _vm._v(" Delete")
+                                ])
+                              : _vm._e()
+                          ],
+                          1
+                        )
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.token && !_vm.destroy
-                      ? _c("span", [
-                          _vm.show
-                            ? _c("a", { attrs: { href: _vm.show } }, [
-                                _vm._v("Show")
-                              ])
-                            : _vm._e(),
-                          _vm._v(" |\n            "),
-                          _vm.edit
-                            ? _c("a", { attrs: { href: _vm.edit } }, [
-                                _vm._v("Edit")
-                              ])
-                            : _vm._e(),
-                          _vm._v(" |\n          ")
-                        ])
+                      ? _c(
+                          "span",
+                          [
+                            _vm.show
+                              ? _c("a", { attrs: { href: _vm.show } }, [
+                                  _vm._v("Show")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" |\n            "),
+                            _vm.edit && !_vm.modal
+                              ? _c("a", { attrs: { href: _vm.edit } }, [
+                                  _vm._v("Edit | ")
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.edit && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    type: "button",
+                                    name: "edit",
+                                    title: "Edit |"
+                                  }
+                                })
+                              : _vm._e()
+                          ],
+                          1
+                        )
                       : _vm._e()
                   ])
                 : _vm._e()
@@ -49088,7 +49147,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
+  return _c("span", [
     _vm.type == "button"
       ? _c(
           "button",

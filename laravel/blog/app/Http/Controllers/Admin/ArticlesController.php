@@ -19,10 +19,10 @@ class ArticlesController extends Controller
             ['title'=>'Articles','url'=>'']
         ]);
 
-        $articleList = [
+        $articleList = json_encode([
             ['id'=>1,'title'=>'php','description'=>'test php description'],
             ['id'=>2,'title'=>'vue','description'=>'test vue description']
-        ]
+        ]);
 
         return view('admin.articles.index',compact('breadcrumbs','articleList'));
     }
