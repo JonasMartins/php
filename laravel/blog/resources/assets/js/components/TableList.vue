@@ -1,6 +1,7 @@
 <template>
   <div><!-- Must have only one div  -->
     <div class="inline">
+      <p>{{this.$store.state.items}}</p>
       <a v-if="create && !modal" v-bind:href="create">New</a>  
       <modal-link v-if="create && modal" type="button" name="add" title="Create"></modal-link>
       <div class="form-group pull-right">
@@ -12,21 +13,21 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th style="cursor:pointer" v-on:click="orderColumn(index)" v-for="(title,index) in titles">{{title}}</th>
-          <th v-if="show || edit || destroy">@@@</th>
+          <th style="cursor:pointer" v-on:click="orderColumn(index)" v-bind:key="title,index" v-for="(title,index) in titles">{{title}}</th>
+          <th v-if="show || edit || destroy"></th>
         </tr>
       </thead>
 
       <tbody>
-        <tr v-for="(item,index) in list">
-          <td v-for="i in item">{{i}}</td>
+        <tr v-bind:key="item,index" v-for="(item,index) in list">
+          <td v-bind:key="i" v-for="i in item">{{i}}</td>
           <td  v-if="show || edit || destroy">
             <form v-bind:id="index" v-if="destroy && token" v-bind:action="destroy" method="post">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" v-bind:value="token">
               <a v-if="show" v-bind:href="show">Show | </a>
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
-              <modal-link v-if="edit && modal" type="button" name="edit" title="Edit |"></modal-link>
+              <modal-link v-if="edit && modal" type="button" name="edit" title="Edit "></modal-link>
               <a href="#" v-on:click="runForm(index)"> Delete</a>
             </form>
             <span v-if="!token">
@@ -72,6 +73,8 @@
     computed:{
 
       list:function(){
+
+        this.$store.commit('setItems',{test:"ok"});
 
         let order = this.orderAux;
         let colorder = this.colorderAux;
