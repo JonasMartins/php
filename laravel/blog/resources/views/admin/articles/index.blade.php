@@ -63,11 +63,16 @@
     <form-input css="" method="post" enctype="" token="">
       <div class="form-group">
         <label for="title">Title</label>
-        <input id="title" type="text" name="title" class="form-control" placeholder="Title">
+        <input id="title" type="text" name="title" 
+        v-model="$store.state.item.title"
+        class="form-control"
+        placeholder="Title">
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <input id="description" type="text" name="description" class="form-control" placeholder="Description">
+        <input id="description" type="text" name="description"
+         v-model="$store.state.item.description" 
+        class="form-control" placeholder="Description">
       </div>
       <button class="btn btn-info">Add</button>
     </form-input>
@@ -80,11 +85,13 @@
     <form-input css="" method="post" enctype="" token="">
       <div class="form-group">
         <label for="title">Title</label>
-        <input id="title" type="text" name="title" class="form-control" placeholder="Title">
+        <input id="title" type="text" name="title" class="form-control" 
+        placeholder="Title">
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <input id="description" type="text" name="description" class="form-control" placeholder="Description">
+        <input id="description" type="text" name="description" class="form-control" 
+        placeholder="Description">
       </div>
       <button class="btn btn-info">Add</button>
     </form-input>

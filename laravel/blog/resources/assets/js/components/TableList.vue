@@ -1,12 +1,10 @@
 <template>
   <div><!-- Must have only one div  -->
     <div class="inline">
-      <p>{{this.$store.state.items}}</p>
       <a v-if="create && !modal" v-bind:href="create">New</a>  
       <modal-link v-if="create && modal" type="button" name="add" title="Create"></modal-link>
       <div class="form-group pull-right">
         <input type="search" class="form-control" placeholder="Search" v-model="search">
-
       </div>
     </div>  
 
@@ -27,7 +25,7 @@
               <input type="hidden" name="_token" v-bind:value="token">
               <a v-if="show" v-bind:href="show">Show | </a>
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
-              <modal-link v-if="edit && modal" type="button" name="edit" title="Edit "></modal-link>
+              <modal-link v-if="edit && modal" v-bind:item="item" type="button" name="edit" title="Edit "></modal-link>
               <a href="#" v-on:click="runForm(index)"> Delete</a>
             </form>
             <span v-if="!token">
@@ -74,7 +72,6 @@
 
       list:function(){
 
-        this.$store.commit('setItems',{test:"ok"});
 
         let order = this.orderAux;
         let colorder = this.colorderAux;
