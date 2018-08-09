@@ -59,7 +59,7 @@
 </modal>
 
 <modal name="edit">
-  <panel title="Articles">
+  <panel title="Edit">
     <form-input css="" method="post" enctype="" token="">
       <div class="form-group">
         <label for="title">Title</label>
@@ -80,21 +80,10 @@
 </modal>
 
 
-<modal name="details">
-  <panel title="Articles">
-    <form-input css="" method="post" enctype="" token="">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input id="title" type="text" name="title" class="form-control" 
-        placeholder="Title">
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input id="description" type="text" name="description" class="form-control" 
-        placeholder="Description">
-      </div>
-      <button class="btn btn-info">Add</button>
-    </form-input>
+<modal name="show">
+  <panel v-bind:title="$store.state.item.title">
+    <p>@{{$store.state.item.description}}</p>
+
   </panel>
 </modal>
 

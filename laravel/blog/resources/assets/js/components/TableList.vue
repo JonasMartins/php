@@ -17,27 +17,39 @@
       </thead>
 
       <tbody>
-        <tr v-bind:key="item,index" v-for="(item,index) in list">
-          <td v-bind:key="i" v-for="i in item">{{i}}</td>
+        <tr v-for="(item,index) in list" :key="item.id">
+          <td v-for="i in item" :key="i">{{i}}</td>
           <td  v-if="show || edit || destroy">
             <form v-bind:id="index" v-if="destroy && token" v-bind:action="destroy" method="post">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" v-bind:value="token">
-              <a v-if="show" v-bind:href="show">Show | </a>
+
+              <a v-if="show && !modal" v-bind:href="show">Show</a>
+              <modal-link v-if="show && modal" v-bind:item="item" type="link" name="show" title="Details"></modal-link>
+
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
-              <modal-link v-if="edit && modal" v-bind:item="item" type="button" name="edit" title="Edit "></modal-link>
+              
+              <modal-link v-if="edit && modal" v-bind:item="item" type="link" name="edit" title="Edit "></modal-link>
+              
               <a href="#" v-on:click="runForm(index)"> Delete</a>
             </form>
             <span v-if="!token">
-              <a v-if="show" v-bind:href="show">Show | </a>
+
+              <a v-if="show && !modal" v-bind:href="show">Show</a>
+              <modal-link v-if="show && modal" v-bind:item="item" type="link" name="show" title="Details"></modal-link>
+
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
-              <modal-link v-if="edit && modal" type="button" name="edit" title="Edit"></modal-link>
+              <modal-link v-if="edit && modal" type="link" name="edit" title="Edit"></modal-link>
+              
               <a v-if="destroy" v-bind:href="destroy"> Delete</a>  
             </span>
             <span v-if="token && !destroy">
-              <a v-if="show" v-bind:href="show">Show</a> |
+
+              <a v-if="show && !modal" v-bind:href="show">Show</a>
+              <modal-link v-if="show && modal" v-bind:item="item" type="link" name="show" title="Details"></modal-link>
+
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
-              <modal-link v-if="edit && modal" type="button" name="edit" title="Edit"></modal-link>
+              <modal-link v-if="edit && modal" type="link" name="edit" title="Edit"></modal-link>
             </span>
           </td>
         </tr>        

@@ -28,7 +28,7 @@
 		props:['type','name','title','css','item'],
 		methods:{
 			fillForm:function(){
-				this.store.commit('setItem',this.item);
+				this.$store.commit('setItem',this.item);
 			}
 		}
   }

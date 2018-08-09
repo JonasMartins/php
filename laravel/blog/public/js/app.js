@@ -49367,6 +49367,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titles', 'items', 'create', 'show', 'edit', 'destroy', 'token', 'order', 'colorder', 'modal'],
@@ -49508,7 +49520,7 @@ var render = function() {
         _vm._l(_vm.list, function(item, index) {
           return _c(
             "tr",
-            { key: item, index: index },
+            { key: item.id },
             [
               _vm._l(item, function(i) {
                 return _c("td", { key: i }, [_vm._v(_vm._s(i))])
@@ -49540,10 +49552,21 @@ var render = function() {
                               domProps: { value: _vm.token }
                             }),
                             _vm._v(" "),
-                            _vm.show
+                            _vm.show && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.show } }, [
-                                  _vm._v("Show | ")
+                                  _vm._v("Show")
                                 ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.show && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    item: item,
+                                    type: "link",
+                                    name: "show",
+                                    title: "Details"
+                                  }
+                                })
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.edit && !_vm.modal
@@ -49556,7 +49579,7 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
-                                    type: "button",
+                                    type: "link",
                                     name: "edit",
                                     title: "Edit "
                                   }
@@ -49584,10 +49607,21 @@ var render = function() {
                       ? _c(
                           "span",
                           [
-                            _vm.show
+                            _vm.show && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.show } }, [
-                                  _vm._v("Show | ")
+                                  _vm._v("Show")
                                 ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.show && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    item: item,
+                                    type: "link",
+                                    name: "show",
+                                    title: "Details"
+                                  }
+                                })
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.edit && !_vm.modal
@@ -49599,7 +49633,7 @@ var render = function() {
                             _vm.edit && _vm.modal
                               ? _c("modal-link", {
                                   attrs: {
-                                    type: "button",
+                                    type: "link",
                                     name: "edit",
                                     title: "Edit"
                                   }
@@ -49620,12 +49654,23 @@ var render = function() {
                       ? _c(
                           "span",
                           [
-                            _vm.show
+                            _vm.show && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.show } }, [
                                   _vm._v("Show")
                                 ])
                               : _vm._e(),
-                            _vm._v(" |\n            "),
+                            _vm._v(" "),
+                            _vm.show && _vm.modal
+                              ? _c("modal-link", {
+                                  attrs: {
+                                    item: item,
+                                    type: "link",
+                                    name: "show",
+                                    title: "Details"
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
                             _vm.edit && !_vm.modal
                               ? _c("a", { attrs: { href: _vm.edit } }, [
                                   _vm._v("Edit | ")
@@ -49635,7 +49680,7 @@ var render = function() {
                             _vm.edit && _vm.modal
                               ? _c("modal-link", {
                                   attrs: {
-                                    type: "button",
+                                    type: "link",
                                     name: "edit",
                                     title: "Edit"
                                   }
@@ -50113,7 +50158,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	props: ['type', 'name', 'title', 'css', 'item'],
 	methods: {
 		fillForm: function fillForm() {
-			this.store.commit('setItem', this.item);
+			this.$store.commit('setItem', this.item);
 		}
 	}
 });
