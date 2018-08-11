@@ -26,20 +26,45 @@
     </table-list>
   </panel>
 </page>
-<modal name="add">
-  <panel title="Articles">
-    <form-input css="" method="post" enctype="" token="">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input id="title" type="text" name="title" class="form-control" placeholder="Title">
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input id="description" type="text" name="description" class="form-control" placeholder="Description">
-      </div>
-      <button class="btn btn-info">Add</button>
-    </form-input>
-    <!-- <form>
+<modal name="add" title="Add">
+  <form-input id="form-add" css="" method="post" enctype="" token="">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" name="title" class="form-control" placeholder="Title">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input id="description" type="text" name="description" class="form-control" placeholder="Description">
+    </div>
+  </form-input>
+  <!-- Esse slot é o slot com a tag name=buttons em Modal.vue
+  adicionando nesse span a tag slot com o mesmo valor de name do slot de Modal.vue
+  podemos passar o conteudo a ser passado para o slot -->
+  <span slot="buttons">
+    <button form="form-add" class="btn btn-info">Add</button>
+  </span>
+</modal>
+
+<modal name="edit" title="Edit">
+  <form-input id="form-edit" css="" method="post" enctype="" token="">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" name="title" 
+      v-model="$store.state.item.title"
+      class="form-control"
+      placeholder="Title">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input id="description" type="text" name="description"
+        v-model="$store.state.item.description" 
+      class="form-control" placeholder="Description">
+    </div>
+  </form-input>
+  <span slot="buttons">
+    <button form="form-edit" class="btn btn-info">Done</button>
+  </span>
+  <!-- <form>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -55,36 +80,11 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form> -->
-  </panel>
-</modal>
-
-<modal name="edit">
-  <panel title="Edit">
-    <form-input css="" method="post" enctype="" token="">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input id="title" type="text" name="title" 
-        v-model="$store.state.item.title"
-        class="form-control"
-        placeholder="Title">
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input id="description" type="text" name="description"
-         v-model="$store.state.item.description" 
-        class="form-control" placeholder="Description">
-      </div>
-      <button class="btn btn-info">Add</button>
-    </form-input>
-  </panel>
 </modal>
 
 
-<modal name="show">
-  <panel v-bind:title="$store.state.item.title">
-    <p>@{{$store.state.item.description}}</p>
-
-  </panel>
+<modal name="show" v-bind:title="$store.state.item.title">
+  <p>@{{$store.state.item.description}}</p>
 </modal>
 
 @endsection

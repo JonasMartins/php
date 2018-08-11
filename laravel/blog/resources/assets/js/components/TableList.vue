@@ -111,6 +111,7 @@
 
         if(this.search){
           return this.items.filter(res => {
+          res = Object.values(res)
           for(let k = 0;k<res.length;k++){
             // concatenate with "" to convert a int into a string for sure
             if((res[k]+"").toLowerCase().indexOf(this.search.toLowerCase()) >= 0)
