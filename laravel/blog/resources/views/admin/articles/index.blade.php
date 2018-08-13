@@ -12,7 +12,7 @@
 
 
     <table-list 
-    v-bind:titles="['#','Title','Description']"
+    v-bind:titles="['#','Title','Description','Date']"
     v-bind:items="{{$articleList}}"
     create="#create"
     show="#show"
@@ -27,7 +27,7 @@
   </panel>
 </page>
 <modal name="add" title="Add">
-  <form-input id="form-add" css="" method="post" enctype="" token="">
+  <form-input id="form-add" action="{{route('articles.store')}}" css="" method="post" enctype="" token="{{csrf_token()}}">
     <div class="form-group">
       <label for="title">Title</label>
       <input id="title" type="text" name="title" class="form-control" placeholder="Title">
@@ -35,6 +35,14 @@
     <div class="form-group">
       <label for="description">Description</label>
       <input id="description" type="text" name="description" class="form-control" placeholder="Description">
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea name="content" id="content" class="form-control" cols="10" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input id="date" type="date" name="date" class="form-control">
     </div>
   </form-input>
   <!-- Esse slot é o slot com a tag name=buttons em Modal.vue
