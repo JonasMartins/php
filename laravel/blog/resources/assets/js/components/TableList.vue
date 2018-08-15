@@ -25,7 +25,7 @@
               <input type="hidden" name="_token" v-bind:value="token">
 
               <a v-if="show && !modal" v-bind:href="show">Show</a>
-              <modal-link v-if="show && modal" v-bind:item="item" type="link" name="show" title="Details"></modal-link>
+              <modal-link v-if="show && modal" v-bind:item="item" v-bind:url="show" type="link" name="show" title="Details"></modal-link>
 
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
               
@@ -36,7 +36,7 @@
             <span v-if="!token">
 
               <a v-if="show && !modal" v-bind:href="show">Show</a>
-              <modal-link v-if="show && modal" v-bind:item="item" type="link" name="show" title="Details"></modal-link>
+              <modal-link v-if="show && modal" v-bind:item="item" v-bind:url="show" type="link" name="show" title="Details"></modal-link>
 
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
               <modal-link v-if="edit && modal" type="link" name="edit" title="Edit"></modal-link>
@@ -46,7 +46,7 @@
             <span v-if="token && !destroy">
 
               <a v-if="show && !modal" v-bind:href="show">Show</a>
-              <modal-link v-if="show && modal" v-bind:item="item" type="link" name="show" title="Details"></modal-link>
+              <modal-link v-if="show && modal" v-bind:item="item" v-bind:url="show" type="link" name="show" title="Details"></modal-link>
 
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
               <modal-link v-if="edit && modal" type="link" name="edit" title="Edit"></modal-link>

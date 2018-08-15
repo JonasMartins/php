@@ -27,7 +27,7 @@
     v-bind:titles="['#','Title','Description','Date']"
     v-bind:items="{{$articleList}}"
     create="#create"
-    show="#show"
+    show="/admin/articles/"
     edit="#edit"
     order="asc"
     colorder="2"
@@ -105,6 +105,7 @@
 
 <modal name="show" v-bind:title="$store.state.item.title">
   <p>@{{$store.state.item.description}}</p>
+  <p>@{{$store.state.item.content}}</p>
 </modal>
 
 @endsection

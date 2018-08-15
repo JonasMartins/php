@@ -49563,6 +49563,7 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.show,
                                     type: "link",
                                     name: "show",
                                     title: "Details"
@@ -49618,6 +49619,7 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.show,
                                     type: "link",
                                     name: "show",
                                     title: "Details"
@@ -49665,6 +49667,7 @@ var render = function() {
                               ? _c("modal-link", {
                                   attrs: {
                                     item: item,
+                                    url: _vm.show,
                                     type: "link",
                                     name: "show",
                                     title: "Details"
@@ -50202,10 +50205,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['type', 'name', 'title', 'css', 'item'],
+	props: ['type', 'name', 'title', 'css', 'item', 'url'],
 	methods: {
 		fillForm: function fillForm() {
-			this.$store.commit('setItem', this.item);
+			var _this = this;
+
+			axios.get(this.url + this.item.id).then(function (res) {
+				console.log(res.data);
+				_this.$store.commit('setItem', res.data);
+			});
+			//this.$store.commit('setItem',this.item);
 		}
 	}
 });
