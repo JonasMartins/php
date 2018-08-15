@@ -29,7 +29,7 @@
 
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
               
-              <modal-link v-if="edit && modal" v-bind:item="item" type="link" name="edit" title="Edit "></modal-link>
+              <modal-link v-if="edit && modal" v-bind:item="item" v-bind:url="edit" type="link" name="edit" title="Edit "></modal-link>
               
               <a href="#" v-on:click="runForm(index)"> Delete</a>
             </form>
@@ -39,7 +39,7 @@
               <modal-link v-if="show && modal" v-bind:item="item" v-bind:url="show" type="link" name="show" title="Details"></modal-link>
 
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
-              <modal-link v-if="edit && modal" type="link" name="edit" title="Edit"></modal-link>
+              <modal-link v-if="edit && modal" v-bind:item="item" v-bind:url="edit" type="link" name="edit" title="Edit"></modal-link>
               
               <a v-if="destroy" v-bind:href="destroy"> Delete</a>  
             </span>
@@ -49,7 +49,7 @@
               <modal-link v-if="show && modal" v-bind:item="item" v-bind:url="show" type="link" name="show" title="Details"></modal-link>
 
               <a v-if="edit && !modal" v-bind:href="edit">Edit | </a>
-              <modal-link v-if="edit && modal" type="link" name="edit" title="Edit"></modal-link>
+              <modal-link v-if="edit && modal" v-bind:item="item" v-bind:url="edit" type="link" name="edit" title="Edit"></modal-link>
             </span>
           </td>
         </tr>        

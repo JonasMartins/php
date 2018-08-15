@@ -28,7 +28,7 @@
     v-bind:items="{{$articleList}}"
     create="#create"
     show="/admin/articles/"
-    edit="#edit"
+    edit="/admin/articles/"
     order="asc"
     colorder="2"
     destroy="#destroy"
@@ -66,7 +66,7 @@
 </modal>
 
 <modal name="edit" title="Edit">
-  <form-input id="form-edit" css="" method="post" enctype="" token="">
+  <form-input id="form-edit" v-bind:action="'/admin/articles/'+ $store.state.item.id" method="put" enctype="" token="{{csrf_token()}}">
     <div class="form-group">
       <label for="title">Title</label>
       <input id="title" type="text" name="title" 
@@ -79,6 +79,14 @@
       <input id="description" type="text" name="description"
         v-model="$store.state.item.description" 
       class="form-control" placeholder="Description">
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea name="content" id="content" class="form-control" cols="10" rows="10" v-model="$store.state.item.content"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input id="date" type="date" name="date" class="form-control" v-model="$store.state.item.date">
     </div>
   </form-input>
   <span slot="buttons">
