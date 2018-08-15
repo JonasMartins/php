@@ -2,6 +2,18 @@
 
 @section('content')
 <page size="10">
+  
+  @if($errors->all())
+    <div class="alert alert-danger alert-dismissible text-center" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="false"></span>
+      </button>
+      @foreach ($errors->all() as $key => $value)
+        <li><strong>{{$value}}</strong></li>
+      @endforeach
+    </div>
+  @endif
+    
   <panel title="Articles">
     <breadcrumb v-bind:breadcrumbs="{{$breadcrumbs}}"></breadcrumb>
 
@@ -30,19 +42,19 @@
   <form-input id="form-add" action="{{route('articles.store')}}" css="" method="post" enctype="" token="{{csrf_token()}}">
     <div class="form-group">
       <label for="title">Title</label>
-      <input id="title" type="text" name="title" class="form-control" placeholder="Title">
+      <input id="title" type="text" name="title" class="form-control" placeholder="Title" value="{{old('title')}}">
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <input id="description" type="text" name="description" class="form-control" placeholder="Description">
+      <input id="description" type="text" name="description" class="form-control" placeholder="Description" value="{{old('description')}}">
     </div>
     <div class="form-group">
       <label for="content">Content</label>
-      <textarea name="content" id="content" class="form-control" cols="10" rows="10"></textarea>
+      <textarea name="content" id="content" class="form-control" cols="10" rows="10">{{old('content')}}</textarea>
     </div>
     <div class="form-group">
       <label for="date">Date</label>
-      <input id="date" type="date" name="date" class="form-control">
+      <input id="date" type="date" name="date" class="form-control" value="{{old('date')}}">
     </div>
   </form-input>
   <!-- Esse slot é o slot com a tag name=buttons em Modal.vue
