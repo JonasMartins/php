@@ -49535,7 +49535,7 @@ var render = function() {
                           {
                             attrs: {
                               id: index,
-                              action: _vm.destroy,
+                              action: _vm.destroy + item.id,
                               method: "post"
                             }
                           },
@@ -50183,7 +50183,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //

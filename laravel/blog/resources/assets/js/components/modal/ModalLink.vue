@@ -19,7 +19,6 @@
 				{{title}}
 			</a>	
 		</span>
-	  
 	</span>
 </template>
 

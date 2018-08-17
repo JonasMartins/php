@@ -31,8 +31,8 @@
     edit="/admin/articles/"
     order="asc"
     colorder="2"
-    destroy="#destroy"
-    token="#0192091082108210921"
+    destroy="/admin/articles/"
+    token="{{csrf_token()}}"
     modal="yes">
     
     </table-list>
@@ -73,7 +73,7 @@
       v-model="$store.state.item.title"
       class="form-control"
       placeholder="Title">
-    </div>
+    </div>  
     <div class="form-group">
       <label for="description">Description</label>
       <input id="description" type="text" name="description"
