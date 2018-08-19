@@ -84,7 +84,7 @@
 
       list:function(){
 
-
+        let list = this.items.data;
         let order = this.orderAux;
         let colorder = this.colorderAux;
 
@@ -92,7 +92,7 @@
         colorder = parseInt(colorder);
 
         if(order=='asc'){
-          this.items.sort(function(a,b){
+          list.sort(function(a,b){
           if(Object.values(a)[colorder] > Object.values(b)[colorder])
             return 1;
           if(Object.values(a)[colorder] < Object.values(b)[colorder])
@@ -100,7 +100,7 @@
           return 0;
           });
         } else {
-          this.items.sort(function(a,b){
+          list.sort(function(a,b){
           if(Object.values(a)[colorder] < Object.values(b)[colorder])
             return 1;
           if(Object.values(a)[colorder] > Object.values(b)[colorder])
@@ -110,7 +110,7 @@
         }
 
         if(this.search){
-          return this.items.filter(res => {
+          return list.filter(res => {
           res = Object.values(res)
           for(let k = 0;k<res.length;k++){
             // concatenate with "" to convert a int into a string for sure
@@ -120,7 +120,7 @@
             return false;
           });
         }
-        return this.items;
+        return list;
       }
     }
    }

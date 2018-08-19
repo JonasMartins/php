@@ -25,7 +25,7 @@
 
     <table-list 
     v-bind:titles="['#','Title','Description','Date']"
-    v-bind:items="{{$articleList}}"
+    v-bind:items="{{json_encode($articleList)}}"
     create="#create"
     show="/admin/articles/"
     edit="/admin/articles/"
@@ -36,6 +36,9 @@
     modal="yes">
     
     </table-list>
+    <div aling="center">
+      {{$articleList->links()}}
+    </div>
   </panel>
 </page>
 <modal name="add" title="Add">

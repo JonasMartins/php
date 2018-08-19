@@ -20,7 +20,7 @@ class ArticlesController extends Controller
             ['title'=>'Articles','url'=>'']
         ]);
 
-        $articleList = json_encode(Article::select('id','title','description','date')->get());
+        $articleList = Article::select('id','title','description','date')->paginate(2);
 
         return view('admin.articles.index',compact('breadcrumbs','articleList'));
     }
