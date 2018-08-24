@@ -12,7 +12,7 @@
       <box amount="50" title="Authors" url="#" color="green" icon="ion ion-person"></box>
     </div>
     <div class="col-md-4">
-      <box amount="103" title="Users" url="#" color="orange" icon="ion ion-person-stalker"></box>
+      <box amount="103" title="Users" url="{{route('users.index')}}" color="orange" icon="ion ion-person-stalker"></box>
     </div>
   </div>
   </panel>

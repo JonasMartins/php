@@ -49403,6 +49403,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     list: function list() {
       var _this = this;
 
+      var list = this.items.data;
       var order = this.orderAux;
       var colorder = this.colorderAux;
 
@@ -49410,13 +49411,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       colorder = parseInt(colorder);
 
       if (order == 'asc') {
-        this.items.sort(function (a, b) {
+        list.sort(function (a, b) {
           if (Object.values(a)[colorder] > Object.values(b)[colorder]) return 1;
           if (Object.values(a)[colorder] < Object.values(b)[colorder]) return -1;
           return 0;
         });
       } else {
-        this.items.sort(function (a, b) {
+        list.sort(function (a, b) {
           if (Object.values(a)[colorder] < Object.values(b)[colorder]) return 1;
           if (Object.values(a)[colorder] > Object.values(b)[colorder]) return -1;
           return 0;
@@ -49424,7 +49425,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
 
       if (this.search) {
-        return this.items.filter(function (res) {
+        return list.filter(function (res) {
           res = Object.values(res);
           for (var k = 0; k < res.length; k++) {
             // concatenate with "" to convert a int into a string for sure
@@ -49433,7 +49434,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           return false;
         });
       }
-      return this.items;
+      return list;
     }
   }
 });
