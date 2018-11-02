@@ -31,5 +31,15 @@ class Question extends Model
     	//return '#';
     }
 
-
-}
+    public function getStatusAttribute()
+    {
+        $status = "unanswered";
+        if($this->answers > 0){
+            if($this->best_answer_id)
+                $status = "answered-accepted";
+            else
+                $status = "answered";
+        }
+        return $status;
+    }
+}   
