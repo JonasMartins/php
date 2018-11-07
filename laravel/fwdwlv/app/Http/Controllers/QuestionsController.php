@@ -46,7 +46,7 @@ class QuestionsController extends Controller
     public function store(AskQuestionRequest $request)
     {
         $request->user()->questions()->create($request->only('title','body'));
-        $return redirect()->route('questions.index')->with('success', "Question submitted successfully");
+        return redirect()->route('questions.index')->with('success', "Question submitted successfully");
     }
 
     /**
@@ -68,7 +68,8 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+
+        return view('questions.edit',compact('question'));    
     }
 
     /**
