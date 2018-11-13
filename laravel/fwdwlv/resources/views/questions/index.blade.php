@@ -43,7 +43,6 @@
                                         <a href="{{route('questions.edit', $question->id)}}" class="btn btn-sml btn-outline-info">E</a>
                                     @endif
                                     @if(Auth::user()->can('delete-question', $question))
-
                                         <form method="POST" class="form-delete" action="{{route('questions.destroy', $question->id)}}">
                                             @method('DELETE')
                                             @csrf    

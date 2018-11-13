@@ -8,6 +8,11 @@ use App\Http\Requests\AskQuestionRequest;
 
 class QuestionsController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth',['except' => ['index', 'show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -68,11 +73,13 @@ class QuestionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Question $question)
+
     {
-        if(\Gate::denies('uodate-question', $question))
-        {
-            abort(403, "Access Denied");
-        }
+        // if(\Gate::denies('uodate-question', $question))
+        // {
+        //     abort(403, "Access Denied");
+        // }
+        $this->authorize('update', $question);
         return view('questions.edit',compact('question'));    
     }
 
@@ -85,10 +92,11 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        if(\Gate::denies('uodate-question', $question))
-        {
-            abort(403, "Access Denied");
-        }
+        // if(\Gate::denies('uodate-question', $question))
+        // {
+        //     abort(403, "Access Denied");
+        // }
+        $this->authorize('update', $question);
         $question->update($request->only('title', 'body'));
         return redirect('/questions')->with('success', 'Question Updated');
     }
@@ -101,10 +109,11 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-        if(\Gate::denies('delete-question', $question))
-        {
-            abort(403, "Access Denied");
-        }
+        // if(\Gate::denies('delete-question', $question))
+        // {
+        //     abort(403, "Access Denied");
+        // }
+        $this->authorize('destroy', $question);
         $question->delete();
         return redirect('/questions')->with('sucess', "Question Deleted");
     }
