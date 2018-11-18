@@ -1,0 +1,923 @@
+[33mcommit f85a36de9bf7699ed8ccd683631903a38cfc182f[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Fri Nov 16 20:37:07 2018 -0300
+
+    fwdwlv 178.2
+
+[33mcommit 91527f476ad750f80a3c6759c29acbd018acfa6e[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Wed Nov 14 21:02:49 2018 -0300
+
+    fwdwlv 178.1
+
+[33mcommit 08b0281becfce62b1cc23211ef6e93870f760d8d[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Tue Nov 13 20:31:58 2018 -0300
+
+    fwdwlv 179
+
+[33mcommit 978e63648e162ad68c61b5ff804c31f151736b80[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Nov 11 15:18:57 2018 -0300
+
+    fwdwlv 180
+
+[33mcommit 78b5fa860a52e104de5ea8c033f137291a76aad8[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sat Nov 10 21:17:09 2018 -0300
+
+    fwdwlv 181
+
+[33mcommit 85f4e75fa13d40a02a91d33d032eb00325a7153e[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sat Nov 10 20:38:14 2018 -0300
+
+    fwdwlv 182
+
+[33mcommit ea7a21aedb025d0787af28a02e619ad05e6800b0[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sat Nov 10 20:15:34 2018 -0300
+
+    fwdwlv 183
+
+[33mcommit 9002d39bd702a24e6ba0324bb42c4d273f81677b[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Wed Nov 7 19:48:30 2018 -0300
+
+    fwdwlv 184
+
+[33mcommit f4f25f369f14c10af8c45c15d3a85265502336f0[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Mon Nov 5 20:05:45 2018 -0300
+
+    fwdwlv 185
+
+[33mcommit 672cdde635b5743fae00d6fce5ae195876d30d8f[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Nov 4 14:27:09 2018 -0300
+
+    fwdwlv 186
+
+[33mcommit 5c38543ac5f8130c8d6ef44484e17d7b8dba9541[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sat Nov 3 14:27:33 2018 -0300
+
+    fwdwlv 187
+
+[33mcommit 36e71d4c649543e8e4a0f4ea1b8dc359097db90a[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Fri Nov 2 22:05:09 2018 -0300
+
+    fwdwlv 188
+
+[33mcommit 6c0c21ff8f50164cca7d0db85a1ad0340afeef63[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Thu Nov 1 21:27:09 2018 -0300
+
+    fwdwlv 189
+
+[33mcommit fcbc2dc68c91232e72f7c6acb8bcffca3fcba9b6[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Tue Oct 30 21:54:45 2018 -0300
+
+    fwdwlv 190
+
+[33mcommit 4a7999cd4726813190d6a944d539b457038b00eb[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Oct 28 18:45:30 2018 -0300
+
+    fwdwlv 191
+
+[33mcommit 399f47afba68d8f0427939eaa8c872d153b0a479[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Fri Oct 26 23:07:10 2018 -0300
+
+    fwdwlv 192
+
+[33mcommit ea1f3c81706a1435b94c2248648de2daf111f5d4[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Thu Oct 25 19:06:09 2018 -0300
+
+    fwdwlv 193
+
+[33mcommit 19aaeaedaf630e3ef5f7703287d5a03ef3d2f3fc[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Wed Oct 24 21:23:23 2018 -0300
+
+    fwdwlv 194
+
+[33mcommit 3447fd6b537f603df1d04bed95698437d9470552[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Tue Oct 23 20:00:14 2018 -0300
+
+    fwdwlv 195
+
+[33mcommit efe65b2ec297964c1acc1e4c82d835e914864bf5[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Tue Oct 23 19:50:14 2018 -0300
+
+    fwdwlv rm -rf old laravel project
+
+[33mcommit fb2ceaa6a977636127980c7c51b400c47d77e831[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Mon Oct 22 20:44:24 2018 -0300
+
+    fwdwlv 196
+
+[33mcommit 676a776fc8ef6044ce4c1dba767456f2daaec363[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Oct 21 20:56:06 2018 -0300
+
+    fwdwlv 198
+
+[33mcommit efa254b51d7ba3d8a8b1a734e85abd15231f7b1e[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sat Oct 20 22:51:42 2018 -0300
+
+    sval 197
+
+[33mcommit e510b2fec45bfbdce637e275ed24a300ec1e57bf[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Thu Aug 23 21:25:45 2018 -0300
+
+    lcvjsfs 043.2
+
+[33mcommit 3e2310ef5a34b3e5d65311dea0354e94f36df91b[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Mon Aug 20 21:19:35 2018 -0300
+
+    lcvjsfs 043.1
+
+[33mcommit 9ec167bbb290f0a04bdfe069f8aff73a8b529211[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Aug 19 18:08:40 2018 -0300
+
+    lcvjsfs 042
+
+[33mcommit 8ea08cd07c71ba244ff9ec4f2f535c93b5fd278c[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Fri Aug 17 20:36:48 2018 -0300
+
+    lcvjsfs 040
+
+[33mcommit 5c07dd691ccb65fcc2b9a39932d0e80d2912a030[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Wed Aug 15 14:34:07 2018 -0300
+
+    lcvjsfs 040
+
+[33mcommit 8296c18b4cdf3d1ad9d066931efc85aa49491fbe[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Wed Aug 15 14:05:34 2018 -0300
+
+    lcvjsfs 039
+
+[33mcommit d4826ecc91d71daff52eecc0e0995ec2ab973764[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Tue Aug 14 22:32:07 2018 -0300
+
+    lcvjsfs 037
+
+[33mcommit 4e1399bcc2dd5ab771e27c8e673ec07fee7c0d65[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Aug 12 21:04:28 2018 -0300
+
+    lcvjsfs 036
+
+[33mcommit 8f51239daacc831cf8ba2f5b838c338cf42b89a3[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sat Aug 11 21:24:20 2018 -0300
+
+    lcvjsfs 034
+
+[33mcommit 5b10543765de8fb99ab032f4115d9f90450cade8[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Fri Aug 10 21:54:35 2018 -0300
+
+    lcvjsfs 033
+
+[33mcommit 54728db4369f5e81d14f3c7e8b0a5247858da990[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Thu Aug 9 20:38:38 2018 -0300
+
+    lcvjsfs 028
+
+[33mcommit b62d391a2569221f5bf6c508dde57661e97b6785[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Wed Aug 8 21:55:12 2018 -0300
+
+    lcvjsfs 031
+
+[33mcommit dc5b052bc6ebad195db8a503e2834136f6c24889[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Tue Aug 7 21:09:25 2018 -0300
+
+    lcvjsfs 030
+
+[33mcommit c23ddbd19619f7d5db56e9004f877f69454f17a1[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Mon Aug 6 21:11:59 2018 -0300
+
+    lcvjsfs 029
+
+[33mcommit f052bdac63064242d25d15e7e39ac16f3d2568e7[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Aug 5 21:39:15 2018 -0300
+
+    lcvjsfs 028
+
+[33mcommit 2ed713971e146736a4f15e495a46fdc01a813444[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Fri Jul 27 21:42:42 2018 -0300
+
+    lcvjsfs 027
+
+[33mcommit 62a4fbf53dfc92b01e200ba324670a064229786b[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Thu Jul 26 20:25:45 2018 -0300
+
+    lcvjsfs 026
+
+[33mcommit 2e1335106a20c15eb061bd7d6672b0fd24d42e85[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Thu Jul 26 20:08:30 2018 -0300
+
+    lcvjsfs 025
+
+[33mcommit d7e2d7aacd033c7ff797c938e112c784a2ba59cb[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Wed Jul 25 22:35:55 2018 -0300
+
+    lcvjsfs 024
+
+[33mcommit d54e7a7019f8bc81eb3c24e203de3b6b01d7a603[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Wed Jul 25 21:12:43 2018 -0300
+
+    lcvjsfs 023
+
+[33mcommit 00eda62ae063799858ee68c9f95cdaa3ca47d3a6[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Tue Jul 24 21:43:39 2018 -0300
+
+    lcvjsfs 022
+
+[33mcommit 4f3134b460ae38756b72f7a6b23eac841165c83f[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Tue Jul 24 21:22:31 2018 -0300
+
+    lcvjsfs 020
+
+[33mcommit a8539a700771aae4b5cc40f6fcc898ea1a5459bc[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Tue Jul 24 15:16:37 2018 -0300
+
+    lcvjsfs 018
+
+[33mcommit 906c23e69f89bfbe54d55481eafbf61afafac6e7[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Mon Jul 23 19:34:58 2018 -0300
+
+    lcvjsfs 016
+
+[33mcommit 6d544ea35f875aeb6c0befb0b193eef324cc26b2[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Jul 22 21:04:16 2018 -0300
+
+    lcvjsfs 015
+
+[33mcommit dd925549b663adf9fe55aea2d9fd44a63ba555ac[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Jul 22 20:40:16 2018 -0300
+
+    lcvjsfs 014
+
+[33mcommit c096e22fc96c27ec676a431a782a79283ff35446[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Jul 22 16:22:47 2018 -0300
+
+    lcvjsfs 012
+
+[33mcommit f0c14526f4ae41d3d84466d2029fcb396962ceb0[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Jul 22 16:15:20 2018 -0300
+
+    lcvjsfs 011
+
+[33mcommit 3602d2e6df8ec32b46fd5a1a5d88bd273088d9f1[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Jul 22 16:07:54 2018 -0300
+
+    lcvjsfs 010
+
+[33mcommit 6b1b86aef7d2f2335175f9a74fc7a043b2814d12[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sun Jul 22 15:08:06 2018 -0300
+
+    lcvjsfs 009
+
+[33mcommit a74bb7b651ee560aabdb6d98b63bcc528c537510[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sat Jul 21 21:09:43 2018 -0300
+
+    lcvjsfs 008
+
+[33mcommit 633314bea0d3a3f0339c9ef00566acabd4fbdfa6[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Sat Jul 21 16:16:21 2018 -0300
+
+    lcvjsfs 007
+
+[33mcommit 68865238c42f164db718778e0c79cd03baa5ebda[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Fri Jul 20 23:13:31 2018 -0300
+
+    lcvjsfs 006
+
+[33mcommit 4c53cab90ef5a6a1bba759afe6f9d1383334988c[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Fri Jul 20 22:40:52 2018 -0300
+
+    lcvjsfs 005
+
+[33mcommit 3a75151741bb98bb28db308f465ac27ca00370b3[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Thu Jul 19 21:34:35 2018 -0300
+
+    lcvjsfs 004
+
+[33mcommit cef59dcc48edda40e65a3c1143a2fda77a459672[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Wed Jul 18 18:29:58 2018 -0300
+
+    lcvjsfs 003.2
+
+[33mcommit 2eb2fcadb91b5319ce59186641c9dd9b7a57e5d8[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Tue Jul 17 20:30:07 2018 -0300
+
+    lcvjsfs 003.1
+
+[33mcommit f286c5ab40cfe3d895ec5c23094712e92b3cc0fa[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Mon Jul 16 21:14:35 2018 -0300
+
+    update readme.md
+
+[33mcommit 5e42c2d3d2e97d80c12fc13bd862a195058d399e[m
+Author: JonasMartins <jonas.w.martins@gmail.com>
+Date:   Mon Jul 16 21:12:02 2018 -0300
+
+    lcvjsfs 002
+
+[33mcommit 64f5df0665b8789260bc0075180545c837e87fb0[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Tue Oct 25 15:34:04 2016 -0300
+
+    Review Sign In action
+
+[33mcommit 0061ae807ba65d9d6980cf274df95cfc1803debb[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Oct 24 12:25:05 2016 -0300
+
+    Index Layout v3
+
+[33mcommit a9b3478ea2664d651f3335bfd8f945256c651588[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Oct 23 19:41:53 2016 -0300
+
+    Index Layout v2
+
+[33mcommit dcd22a1ff2c1c6ca7eae1ff66aecfe9de6b6ffc6[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Oct 23 00:16:23 2016 -0300
+
+    Index criação layout v1
+
+[33mcommit a0b3241a33ab80d4e5bab2e71e76634f785535bb[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Oct 22 18:48:45 2016 -0300
+
+    Padronizando nova cor site
+
+[33mcommit 31da0fbdb4267efbffd9674238de0ce288995a7e[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Oct 22 00:38:32 2016 -0300
+
+    Molduras, Customizando botões
+
+[33mcommit b6534399bb626c6272348cc9bb3f6458a14d6061[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Oct 21 20:40:41 2016 -0300
+
+    Adicionando Bootstrap ao projeto
+
+[33mcommit 4de75a0d0eca23872ef4966f973bbfa5c8be4cee[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Oct 10 00:12:31 2016 -0300
+
+    html css essential training
+
+[33mcommit 4af4dd6845667d8d7b146221ccdb310894fec5cd[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Oct 9 18:58:19 2016 -0300
+
+    Creating comment form
+
+[33mcommit 0925c0d703edb2ec4a928715aad26c3599ffd850[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Oct 9 18:42:19 2016 -0300
+
+    Creating comment class
+
+[33mcommit f07d20137f52b8811ca8ca164ba791df66f2a88e[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Oct 9 00:09:16 2016 -0300
+
+    Photos on Public Area
+
+[33mcommit 9804e0ef0068f12aba2a9c99d98877bb680ec121[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Oct 8 16:48:54 2016 -0300
+
+    Delete photos
+
+[33mcommit a81ca1a0ca0def492983c33f4e9ef36949c5b483[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Oct 8 16:19:36 2016 -0300
+
+    Store SESSION messages to output after redirect
+
+[33mcommit 740edb99ebfb417da211d3dc1f7cee9ffb3de216[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Oct 8 15:18:01 2016 -0300
+
+    List Photos
+
+[33mcommit 654f9d6f0eb624e05ee4e2de805ca4bee6885718[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Oct 7 23:06:01 2016 -0300
+
+    Bug Fix: Working just fine nowgit status CRUD error.
+
+[33mcommit aa6450ac2693bfcfbc240809aca6374fe3a42ab3[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Oct 7 21:50:12 2016 -0300
+
+    Found bug, insert_id() must be called first!
+
+[33mcommit 397b7ec924262ea2eb84bb391a1480979b60c232[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Oct 7 18:33:13 2016 -0300
+
+    Error was  escape_values all along
+
+[33mcommit decbbf6221ae8e4c32d0db21e5cc38a4225b0d6a[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Oct 6 21:26:43 2016 -0300
+
+    Upload Photographs - Inicio Debug, func. attributes() Ok!
+
+[33mcommit 5f4941cf82e71d1bd22d49449d73f76bee27c9af[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Wed Oct 5 21:49:19 2016 -0300
+
+    Método save em photograph: salvando fotografias
+
+[33mcommit 2b51b9a234ac8dfbfc39063e9bdcc16ca1a74867[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Tue Oct 4 22:58:38 2016 -0300
+
+    Funcionalidades em photograph.php (no tests yet)
+
+[33mcommit af8f722ba530c09758774dfb00b5ce19ab2c53b2[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Oct 3 20:50:10 2016 -0300
+
+    Photograph class, e mais comentários padronizados
+
+[33mcommit ddb9f58533149d182c7e9cf1690a0f94c822ac80[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Oct 2 22:23:37 2016 -0300
+
+    Final classe user, comentários e get_called_class()
+
+[33mcommit a494d5e53053973c279b281c72827d2edaa86150[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Oct 2 00:10:01 2016 -0300
+
+    O poder do static:: working 100% (sem testar o CRUD)
+
+[33mcommit 6fe89bfdd525b86af9ad21cc7fc7295c2fe40ac1[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Oct 1 23:52:56 2016 -0300
+
+    Erro abstração de Métodos
+
+[33mcommit f8c2fc29bc2e39f7b0fa26ee3c712d8b78b7dd89[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Sep 30 23:34:58 2016 -0300
+
+    update e delete user
+
+[33mcommit 02dad97b2212091ec3a1e5d98b27282af5e3c021[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Sep 29 22:56:07 2016 -0300
+
+    create user function
+
+[33mcommit 3f7fb27976d7cb415b4c9c2b984e5a2ab4d231a0[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Wed Sep 28 13:47:08 2016 -0300
+
+    Fix move_uploaded_file fim cap 8
+
+[33mcommit b1c0a37b14d7ee5ffdaf69c41191ab97583c5dc5[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Tue Sep 27 20:56:09 2016 -0300
+
+    Upload files deprecated version
+
+[33mcommit ce7ebff1b3f875731ab63519f6822b00424c9b7c[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Sep 26 21:45:33 2016 -0300
+
+    Upload files working
+
+[33mcommit 9cf6d6f2b2c43892a734c3db328e532af5005c55[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Sep 25 12:21:00 2016 -0300
+
+    Fixing Bugs login/out
+
+[33mcommit 85ab3dec31ff5ae9d3e805a048c23802048b5d7d[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Sep 24 22:02:57 2016 -0300
+
+    Finalizando arquivos log para monitorar login
+
+[33mcommit 876bbb4d32a64d2489af8a895fa57751b8fb15f9[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Sep 24 21:35:41 2016 -0300
+
+    Terminando treinamento arquivos e diretórios
+
+[33mcommit 0e9dfa8204656e150eaad64616946ada49948db2[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Sep 24 19:21:39 2016 -0300
+
+    Criando arquivos, alterando permissões
+
+[33mcommit 8971363331d1ba58231a4e28010a58f3d2aaa454[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Sep 23 22:57:47 2016 -0300
+
+    Alterando permissões para servidor vid 7-3
+
+[33mcommit b551e9a24f7f664b7bbc057d33935dbcdde28b4f[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Sep 22 22:48:04 2016 -0300
+
+    Late static bindings!
+
+[33mcommit e4bf5520b0dd07c454039a7309896bedb65d2197[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Sep 22 20:47:07 2016 -0300
+
+    Constantes e arquivos de inicialização
+
+[33mcommit b1c695936fd5372b4cc3e8996523d02b3f3f1b58[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Sep 22 20:27:55 2016 -0300
+
+    bug_fix: escape_value erro, pulando esse método
+
+[33mcommit bff6b889523b2efffae93aec1200cfc12e89704f[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Sep 22 16:49:31 2016 -0300
+
+    Resolvendo bug, função duplicada
+
+[33mcommit 55d62a5651fd6716542be572dedc13b071ac53b2[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Sep 22 16:38:16 2016 -0300
+
+    Login Logout
+
+[33mcommit f7c142af6bea46e053ba1ebc514ee065821d06c0[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Sep 22 15:43:19 2016 -0300
+
+    Session
+
+[33mcommit b28af50a4a5237380e29fe8dfde1cc99c06f4fed[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Sep 22 11:55:52 2016 -0300
+
+    __autoload() function
+
+[33mcommit 26abf56ceda18e9ac9d129d8b1943c1623f27f0b[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Wed Sep 21 13:47:14 2016 -0300
+
+    Resolvendo discrepância entre msql e msqli
+
+[33mcommit caa38a0233b700947aeb75a1b4e8d78d83cba586[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Tue Sep 20 22:46:56 2016 -0300
+
+    Instalando mysql e setando config tabela User
+
+[33mcommit f4991c2d49b8956fe9ccc589fa56240362485945[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Sep 19 12:26:51 2016 -0300
+
+    Instanciando Objetos User, Video 6-6
+
+[33mcommit c5c748aa798befb79aede6d94a8933a946de1516[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Sep 19 11:53:06 2016 -0300
+
+    Criando a classe User com algumas funções
+
+[33mcommit 6b520b0afbc785b1c5a2c42b2b41f48b18501e5b[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Sep 19 11:07:47 2016 -0300
+
+    Melhorando POO 6-4
+
+[33mcommit 8262b79eca57671f4a43b0934d815770fc4f8326[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Sep 18 21:02:23 2016 -0300
+
+    Inicio projeto Photo gallery Web Site
+
+[33mcommit d767d720edd37d3ab9dcf76e02d0eb6e83b111f2[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Sep 17 23:11:00 2016 -0300
+
+    Final OOP start new project
+
+[33mcommit 0de0d455606a59493ca144959cd9338dd7e07fc1[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Sep 17 21:44:42 2016 -0300
+
+    OOP herança e mod. estáticos
+
+[33mcommit 1890195d83b3c897e5396d9985bf9db5e0ed1e3b[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Sep 17 14:13:18 2016 -0300
+
+    OOP first background
+
+[33mcommit 898015c8d1fbb88b3dcfb80370edebd184c0a18a[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Sep 17 12:00:15 2016 -0300
+
+    Novas técnicas básicas
+
+[33mcommit 0136484afcd204b96ca31f9212131caa4a43b085[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Sep 15 22:45:22 2016 -0300
+
+    Array functions
+
+[33mcommit ebd251918203f34bda8abab206b0f864399a5b39[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Wed Sep 14 23:00:53 2016 -0300
+
+    Begin POO beyond the basics
+
+[33mcommit d64a0b9eef17a8f3bc6c5fd1474e7709288e650e[m
+Author: Jonas Martins <jonas.s.martins@hotmail.com>
+Date:   Mon Sep 12 22:24:54 2016 -0300
+
+    This is an oath! I swear!
+
+[33mcommit 8ae947f56488c36f98f318991b4f49decc300220[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Sep 11 21:59:47 2016 -0300
+
+    CRUD new_page.php v:116 4:32min
+
+[33mcommit 67baf518b767f5f3da2b3c4ecde8ee38c2090337[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Sep 10 21:09:55 2016 -0300
+
+    CRUD pages - manage_content.php 2min
+
+[33mcommit 62a14073ada148eef9c2d735231f98c5dfb10fee[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Sep 9 22:46:19 2016 -0300
+
+    Clean Up 114
+
+[33mcommit 02c0af9666058bf0df06a5ef2a8928a4cf69ca53[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Sep 9 13:59:49 2016 -0300
+
+    htmlentities not working
+
+[33mcommit 806aa4a3b580fcaa30e77756bde11867d0f9ab37[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Sep 9 13:13:52 2016 -0300
+
+    Delete Subject
+
+[33mcommit 3119c9e6a3df792ca3b6d81fa82df48ed6504fe9[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Sep 9 12:41:07 2016 -0300
+
+    Editar subject, na mesma página pt2
+
+[33mcommit 7de659270afd3f67b4a2c8f642fc71bea8c89999[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Sep 9 12:07:59 2016 -0300
+
+    Editar subject, pt1
+
+[33mcommit 93fe453dc5cd762c731e0c3d93ec86696ec78ea9[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Sep 8 00:27:49 2016 -0300
+
+    Quase igual, errrors não aparecem
+
+[33mcommit 2f6957ef8f096a9303cf89071b5dbcd032df9925[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Wed Sep 7 23:48:56 2016 -0300
+
+    Validations valores vindos de form
+
+[33mcommit 024f3f722a34cb6fa65557864305d903b984d564[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Sep 5 22:42:00 2016 -0300
+
+    I need see the Server ruuning NOW!
+
+[33mcommit c2627ec4884d0cf930fdc50e17401880cfe97dd8[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Sep 5 22:36:52 2016 -0300
+
+    Erro solucionado
+
+[33mcommit d7a1b86b3a6fbe527c00014523457c1e45467b98[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Sep 5 13:15:39 2016 -0300
+
+    Erro ao criar um subject, não esta inserindo.
+
+[33mcommit 403b95f896f795ebe55d77e8b817b6c0a6c67f6f[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Sep 5 11:20:13 2016 -0300
+
+    Criando um novo subject
+
+[33mcommit a69dbafbcbbd3d36bd106f4521d91466fcd65810[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Sep 4 21:37:14 2016 -0300
+
+    Refatorando navegação
+
+[33mcommit 76117be578fa16ac268e2b3bee93a8e222ebdfd8[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Sep 3 22:19:37 2016 -0300
+
+    Retornando o Subject para a página ao ser clicado
+
+[33mcommit 37e3c385ff526994e3e3ca462c18b58320484334[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Sep 3 20:02:02 2016 -0300
+
+    Refatorando novamente
+
+[33mcommit 70e4e0e7257094dfe9b0a80d57556ab9e5f223e9[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Sep 2 12:58:16 2016 -0300
+
+    Distacando a pagina ou subject atual
+
+[33mcommit c2746c4413b2ee3754f4e0f2ce1b1b9d36c9a9e6[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Sep 2 12:40:37 2016 -0300
+
+    Navegando entre links na pagina inicial
+
+[33mcommit caf4e216d3e675b83d62fe2e1e457780814f9011[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Aug 29 20:44:34 2016 -0300
+
+    Refatoring
+
+[33mcommit b85855599580a3564235c3db17cda60be49791ff[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sun Aug 28 21:51:12 2016 -0300
+
+    Navegação da página manage_content
+
+[33mcommit f627f59ffccd40dfb353fa193dccd83203d88287[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Aug 27 20:16:34 2016 -0300
+
+    Cenectando ao SQL e boas práticas
+
+[33mcommit 073e2e607b53f91379a8efa712a67870a239b359[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Aug 27 19:41:02 2016 -0300
+
+    Assets/Ativos reusáveis
+
+[33mcommit 642225e0a3ef66c05760471a55f2b5e8940c58c8[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Sat Aug 27 14:03:54 2016 -0300
+
+    Site Stylesheets
+
+[33mcommit 20a3edc18bb8d9a1c085b628810cbe0b94d47335[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Fri Aug 26 23:28:20 2016 -0300
+
+    Preparando o site
+
+[33mcommit 6163ee745f51011090a3303f417e4b9601544ab3[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Aug 25 22:01:52 2016 -0300
+
+    Finalizando Trainamento, inicio Projeto
+
+[33mcommit c46f28ed0d351a558808586e23073af2034effed[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Thu Aug 25 18:54:22 2016 -0300
+
+    insert, update, delete
+
+[33mcommit c58db8e1db4be09b634f9e1a11fa5fdadce228b0[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Wed Aug 24 23:01:17 2016 -0300
+
+    Trabalhando com retorno das consultas
+
+[33mcommit 917ebcaaca3561a1cda1a695ddc3197c75542ecd[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Wed Aug 24 22:33:40 2016 -0300
+
+    Retornado dados
+
+[33mcommit 27445e3c38f0c38cb5fe3897999683d1b55b646c[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Wed Aug 24 21:39:11 2016 -0300
+
+    Conexão com MySQL
+
+[33mcommit e031f8b5f3650cfbb0b0242100f47732ea6b0c90[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Tue Aug 23 21:57:52 2016 -0300
+
+    Validações final
+
+[33mcommit 2f299cf3ddc5580bc32d5b4119da0c1672aaaf53[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Tue Aug 23 20:10:13 2016 -0300
+
+    Validations
+
+[33mcommit c7251bd6f7ef47b549bccfede81c35d6c86b5a68[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Tue Aug 23 17:26:18 2016 -0300
+
+    Errata Dependencias
+
+[33mcommit 8a334a118836f16d3972694ca0e9b4e45cfec665[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Tue Aug 23 17:19:34 2016 -0300
+
+    Resolvendo dependencias
+
+[33mcommit cc3c7675d6beae3f3be062f2ba6cf3b1c2a07e1a[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Tue Aug 23 11:49:05 2016 -0300
+
+    Final Web Pages
+
+[33mcommit 91d518a238d4b4c02a3a6098a074b14000b1c616[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Aug 22 22:03:51 2016 -0300
+
+    Includes
+
+[33mcommit 5913506aeb224425ab916b4594c7f13816003258[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Aug 22 21:24:53 2016 -0300
+
+    Web pages
+
+[33mcommit a669f340fd24d5f211430992bbed9566884840e9[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Aug 22 18:38:14 2016 -0300
+
+    Readme
+
+[33mcommit 30b6e40c7a8b5d06ea707248404447d1afc004fa[m
+Author: JonasMartins <jonas.s.martins@hotmail.com>
+Date:   Mon Aug 22 18:31:25 2016 -0300
+
+    Initial commit php project

@@ -38,18 +38,20 @@
                                 <h3 class="mt-0">
                                     <a href="{{$question->url}}">{{$question->title}}</a>
                                 </h3>
-                                <div class="ml-auto">
-                                    @if(Auth::user()->can('update-question', $question))
-                                        <a href="{{route('questions.edit', $question->id)}}" class="btn btn-sml btn-outline-info">E</a>
-                                    @endif
-                                    @if(Auth::user()->can('delete-question', $question))
-                                        <form method="POST" class="form-delete" action="{{route('questions.destroy', $question->id)}}">
-                                            @method('DELETE')
-                                            @csrf    
-                                            <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Sure?')">X</button>
-                                        </form>
-                                    @endif
-                                </div>                                
+                                @if(Auth::user())
+                                    <div class="ml-auto">
+                                        @if(Auth::user()->can('update-question', $question))
+                                            <a href="{{route('questions.edit', $question->id)}}" class="btn btn-sml btn-outline-info">E</a>
+                                        @endif
+                                        @if(Auth::user()->can('delete-question', $question))
+                                            <form method="POST" class="form-delete" action="{{route('questions.destroy', $question->id)}}">
+                                                @method('DELETE')
+                                                @csrf    
+                                                <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Sure?')">X</button>
+                                            </form>
+                                        @endif
+                                    </div>
+                                @endif                                
                             </div>
                                 <p class="lead">
                                     Asked By
